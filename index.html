@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weltverbesserer – kostenlose Werkzeuge für den Alltag</title>
+<meta name="description" content="Kostenlose, werbefreie Werkzeuge ohne Anmeldung: Pflege-Kompass mit Leistungsrechner und Antragsgenerator und weitere Hilfen für den Alltag.">
+<style>
+:root{--bg:#F7F8FA;--surface:#FFFFFF;--ink:#1C2333;--muted:#5A6478;--line:#DDE2EA;--accent:#0F7B6C;--accent-ink:#FFFFFF;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#12161F;--surface:#1A202C;--ink:#E8ECF2;--muted:#A3ADBF;--line:#2C3444;--accent:#3CC3AE;--accent-ink:#0B1F1C;color-scheme:dark}}
+*{box-sizing:border-box}
+html{font-size:17px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;line-height:1.6}
+.wrap{max-width:46rem;margin:0 auto;padding:2.5rem 1.25rem 3rem}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.top{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;border-bottom:1px solid var(--line);padding-bottom:.75rem;margin-bottom:2.5rem}
+.top a.home{font-weight:800;color:var(--ink);text-decoration:none;font-size:1.05rem}
+.top nav a{margin-left:1rem;font-size:.9rem;color:var(--muted)}
+h1{font-size:2.6rem;line-height:1.1;margin:0 0 1rem;letter-spacing:-.02em}
+h2{font-size:1.25rem;margin:2.5rem 0 .75rem}
+p.lead{font-size:1.15rem;color:var(--muted);margin:0 0 2rem;max-width:36rem}
+.promise{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;font-size:.9rem;color:var(--muted);margin-bottom:2.5rem}
+.promise span::before{content:"✓ ";color:var(--accent);font-weight:700}
+.tool{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--accent);border-radius:10px;padding:1.25rem 1.4rem;margin-bottom:1rem}
+.tool.soon{border-left-color:var(--line)}
+.tool h3{margin:0 0 .35rem;font-size:1.15rem}
+.tool p{margin:0 0 .9rem;color:var(--muted)}
+.btn{display:inline-block;background:var(--accent);color:var(--accent-ink);font-weight:700;text-decoration:none;padding:.6rem 1.1rem;border-radius:8px}
+.status{font-size:.85rem;color:var(--muted);font-style:italic}
+footer{border-top:1px solid var(--line);margin-top:3rem;padding-top:1rem;font-size:.85rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:1rem}
+footer a{color:var(--muted)}
+.legal p,.legal li{color:var(--ink)}
+@media (max-width:520px){h1{font-size:2rem}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><a class="home" href="index.html">Weltverbesserer</a><nav><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav></header>
+<main>
+<h1>Kostenlose Werkzeuge, die im Alltag helfen.</h1>
+<p class="lead">Hier finden Sie kleine Programme für Situationen, in denen man schnell den Überblick verliert. Frei nutzbar, für alle.</p>
+<div class="promise"><span>Kostenlos</span><span>Ohne Anmeldung</span><span>Ohne Werbung</span><span>Ohne Tracking</span><span>Quellcode offen</span></div>
+
+<h2>Werkzeuge</h2>
+<article class="tool">
+<h3>Pflege-Kompass SGB XI</h3>
+<p>Welche Leistungen stehen bei welchem Pflegegrad zu? Mit Kombinations- und Heimkosten-Rechner, Antworten auf häufige Fragen und fertigen Anträgen an die Pflegekasse. Beträge Stand 2026.</p>
+<a class="btn" href="pflegerechner.html">Pflege-Kompass öffnen</a>
+</article>
+<article class="tool soon">
+<h3>Rabattcode-Checker</h3>
+<p>Prüft, ob sich ein Rabattcode wirklich lohnt.</p>
+<span class="status">In Arbeit</span>
+</article>
+
+<h2>Wünsche und Verbesserungen</h2>
+<p>Fehler gefunden oder eine Idee für ein neues Werkzeug? Schreiben Sie an <a href="mailto:g.veithen@online.de">g.veithen@online.de</a> oder in die Kommentare auf dem YouTube-Kanal „Weltverbesserer“.</p>
+</main>
+<footer><span>© 2026 Guido Veithen · Freie Software (GPLv3)</span><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></footer>
+</div>
+</body>
+</html>
