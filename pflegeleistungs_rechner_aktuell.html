@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Technischer Schutz gegen Einbettung durch Fremde (Framing-Schutz) -->
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none';">
+    <meta name="description" content="Kostenloser & barrierefreier Pflegeleistungs-Rechner, Kombinationsleistungs-Rechner, Heimkosten-Rechner, Pflegestützpunkt-Suche und Antrags-Generator. Lizenziert unter GNU GPLv3.">
+    <title>Pflege-Orientierung &amp; Leistungsrechner SGB XI</title>
+    <style>
+@font-face{font-family:"FA6Solid";font-style:normal;font-weight:900;font-display:block;src:url(data:font/woff2;base64,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) format("woff2")}.fa-solid{font-family:"FA6Solid";font-weight:900;display:inline-block;font-style:normal;font-variant:normal;line-height:1;text-rendering:auto;-webkit-font-smoothing:antialiased}.fa-arrow-up-right-from-square::before{content:"\f08e"}.fa-book-medical::before{content:"\f7e6"}.fa-calculator::before{content:"\f1ec"}.fa-calendar-check::before{content:"\f274"}.fa-circle-info::before{content:"\f05a"}.fa-circle-question::before{content:"\f059"}.fa-clipboard-list::before{content:"\f46d"}.fa-download::before{content:"\f019"}.fa-file-contract::before{content:"\f56c"}.fa-file-lines::before{content:"\f15c"}.fa-file-signature::before{content:"\f573"}.fa-font::before{content:"\f031"}.fa-gavel::before{content:"\f0e3"}.fa-hand-holding-heart::before{content:"\f4be"}.fa-heart::before{content:"\f004"}.fa-hospital-user::before{content:"\f80d"}.fa-info-circle::before{content:"\f05a"}.fa-kit-medical::before{content:"\f479"}.fa-list-check::before{content:"\f0ae"}.fa-location-dot::before{content:"\f3c5"}.fa-lock::before{content:"\f023"}.fa-magnifying-glass::before{content:"\f002"}.fa-moon::before{content:"\f186"}.fa-mug-hot::before{content:"\f7b6"}.fa-print::before{content:"\f02f"}.fa-scale-balanced::before{content:"\f24e"}.fa-shield-cat::before{content:"\e572"}.fa-shield-halved::before{content:"\f3ed"}.fa-sliders::before{content:"\f1de"}.fa-sun::before{content:"\f185"}.fa-triangle-exclamation::before{content:"\f071"}.fa-xmark::before{content:"\f00d"}
+*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}.visible{visibility:visible}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.bottom-5{bottom:1.25rem}.right-5{right:1.25rem}.top-0{top:0}.z-10{z-index:10}.z-40{z-index:40}.z-50{z-index:50}.col-span-2{grid-column:span 2/span 2}.col-span-full{grid-column:1/-1}.mx-auto{margin-left:auto;margin-right:auto}.my-4{margin-top:1rem;margin-bottom:1rem}.mb-1{margin-bottom:.25rem}.mb-10{margin-bottom:2.5rem}.mb-2{margin-bottom:.5rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mt-0\.5{margin-top:.125rem}.mt-1{margin-top:.25rem}.mt-12{margin-top:3rem}.mt-2{margin-top:.5rem}.mt-3{margin-top:.75rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.mt-8{margin-top:2rem}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-2{height:.5rem}.h-8{height:2rem}.min-h-screen{min-height:100vh}.w-64{width:16rem}.w-full{width:100%}.max-w-3xl{max-width:48rem}.max-w-7xl{max-width:80rem}.flex-grow{flex-grow:1}@keyframes bounce{0%,to{transform:translateY(-25%);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:none;animation-timing-function:cubic-bezier(0,0,.2,1)}}.animate-bounce{animation:bounce 1s infinite}.cursor-pointer{cursor:pointer}.list-disc{list-style-type:disc}.appearance-none{-webkit-appearance:none;-moz-appearance:none;appearance:none}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:.25rem}.gap-1\.5{gap:.375rem}.gap-2{gap:.5rem}.gap-3{gap:.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.gap-x-4{-moz-column-gap:1rem;column-gap:1rem}.gap-y-1{row-gap:.25rem}.space-y-1>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.25rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.25rem*var(--tw-space-y-reverse))}.space-y-1\.5>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.375rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.375rem*var(--tw-space-y-reverse))}.space-y-2>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.5rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.5rem*var(--tw-space-y-reverse))}.space-y-3>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.75rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.75rem*var(--tw-space-y-reverse))}.space-y-4>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem*var(--tw-space-y-reverse))}.space-y-6>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem*var(--tw-space-y-reverse))}.space-y-8>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(2rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(2rem*var(--tw-space-y-reverse))}.self-start{align-self:flex-start}.overflow-hidden{overflow:hidden}.scroll-smooth{scroll-behavior:smooth}.whitespace-nowrap{white-space:nowrap}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:.5rem}.rounded-xl{border-radius:.75rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-b-2{border-bottom-width:2px}.border-l-2{border-left-width:2px}.border-t{border-top-width:1px}.border-dashed{border-style:dashed}.border-amber-200{--tw-border-opacity:1;border-color:rgb(253 230 138/var(--tw-border-opacity,1))}.border-brand-600{--tw-border-opacity:1;border-color:rgb(3 105 161/var(--tw-border-opacity,1))}.border-emerald-200{--tw-border-opacity:1;border-color:rgb(167 243 208/var(--tw-border-opacity,1))}.border-indigo-200{--tw-border-opacity:1;border-color:rgb(199 210 254/var(--tw-border-opacity,1))}.border-indigo-500{--tw-border-opacity:1;border-color:rgb(99 102 241/var(--tw-border-opacity,1))}.border-purple-200{--tw-border-opacity:1;border-color:rgb(233 213 255/var(--tw-border-opacity,1))}.border-slate-200{--tw-border-opacity:1;border-color:rgb(226 232 240/var(--tw-border-opacity,1))}.border-slate-300{--tw-border-opacity:1;border-color:rgb(203 213 225/var(--tw-border-opacity,1))}.border-slate-400{--tw-border-opacity:1;border-color:rgb(148 163 184/var(--tw-border-opacity,1))}.border-slate-700{--tw-border-opacity:1;border-color:rgb(51 65 85/var(--tw-border-opacity,1))}.border-slate-800{--tw-border-opacity:1;border-color:rgb(30 41 59/var(--tw-border-opacity,1))}.border-slate-900{--tw-border-opacity:1;border-color:rgb(15 23 42/var(--tw-border-opacity,1))}.border-teal-200{--tw-border-opacity:1;border-color:rgb(153 246 228/var(--tw-border-opacity,1))}.border-white\/10{border-color:hsla(0,0%,100%,.1)}.bg-amber-100{--tw-bg-opacity:1;background-color:rgb(254 243 199/var(--tw-bg-opacity,1))}.bg-amber-50{--tw-bg-opacity:1;background-color:rgb(255 251 235/var(--tw-bg-opacity,1))}.bg-amber-500{--tw-bg-opacity:1;background-color:rgb(245 158 11/var(--tw-bg-opacity,1))}.bg-black\/20{background-color:rgba(0,0,0,.2)}.bg-brand-50{--tw-bg-opacity:1;background-color:rgb(240 249 255/var(--tw-bg-opacity,1))}.bg-brand-600{--tw-bg-opacity:1;background-color:rgb(3 105 161/var(--tw-bg-opacity,1))}.bg-emerald-100{--tw-bg-opacity:1;background-color:rgb(209 250 229/var(--tw-bg-opacity,1))}.bg-emerald-50{--tw-bg-opacity:1;background-color:rgb(236 253 245/var(--tw-bg-opacity,1))}.bg-emerald-600{--tw-bg-opacity:1;background-color:rgb(5 150 105/var(--tw-bg-opacity,1))}.bg-indigo-50{--tw-bg-opacity:1;background-color:rgb(238 242 255/var(--tw-bg-opacity,1))}.bg-indigo-600{--tw-bg-opacity:1;background-color:rgb(79 70 229/var(--tw-bg-opacity,1))}.bg-purple-50{--tw-bg-opacity:1;background-color:rgb(250 245 255/var(--tw-bg-opacity,1))}.bg-purple-600{--tw-bg-opacity:1;background-color:rgb(147 51 234/var(--tw-bg-opacity,1))}.bg-rose-100{--tw-bg-opacity:1;background-color:rgb(255 228 230/var(--tw-bg-opacity,1))}.bg-slate-100{--tw-bg-opacity:1;background-color:rgb(241 245 249/var(--tw-bg-opacity,1))}.bg-slate-200{--tw-bg-opacity:1;background-color:rgb(226 232 240/var(--tw-bg-opacity,1))}.bg-slate-50{--tw-bg-opacity:1;background-color:rgb(248 250 252/var(--tw-bg-opacity,1))}.bg-slate-800\/60{background-color:rgba(30,41,59,.6)}.bg-slate-900{--tw-bg-opacity:1;background-color:rgb(15 23 42/var(--tw-bg-opacity,1))}.bg-teal-100{--tw-bg-opacity:1;background-color:rgb(204 251 241/var(--tw-bg-opacity,1))}.bg-teal-50{--tw-bg-opacity:1;background-color:rgb(240 253 250/var(--tw-bg-opacity,1))}.bg-teal-600{--tw-bg-opacity:1;background-color:rgb(13 148 136/var(--tw-bg-opacity,1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.bg-white\/20{background-color:hsla(0,0%,100%,.2)}.bg-white\/90{background-color:hsla(0,0%,100%,.9)}.bg-gradient-to-r{background-image:linear-gradient(to right,var(--tw-gradient-stops))}.from-brand-600{--tw-gradient-from:#0369a1 var(--tw-gradient-from-position);--tw-gradient-to:rgba(3,105,161,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.to-indigo-700{--tw-gradient-to:#4338ca var(--tw-gradient-to-position)}.p-1{padding:.25rem}.p-2{padding:.5rem}.p-2\.5{padding:.625rem}.p-3{padding:.75rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.px-2{padding-left:.5rem;padding-right:.5rem}.px-3{padding-left:.75rem;padding-right:.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.py-0\.5{padding-top:.125rem;padding-bottom:.125rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-1\.5{padding-top:.375rem;padding-bottom:.375rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-2\.5{padding-top:.625rem;padding-bottom:.625rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.py-8{padding-top:2rem;padding-bottom:2rem}.pb-2{padding-bottom:.5rem}.pb-3{padding-bottom:.75rem}.pb-6{padding-bottom:1.5rem}.pl-3{padding-left:.75rem}.pl-5{padding-left:1.25rem}.pt-1{padding-top:.25rem}.pt-2{padding-top:.5rem}.pt-6{padding-top:1.5rem}.text-center{text-align:center}.font-sans{font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-\[12px\]{font-size:12px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:.75rem;line-height:1rem}.font-black{font-weight:900}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.tracking-wide{letter-spacing:.025em}.tracking-wider{letter-spacing:.05em}.text-amber-400{--tw-text-opacity:1;color:rgb(251 191 36/var(--tw-text-opacity,1))}.text-amber-600{--tw-text-opacity:1;color:rgb(217 119 6/var(--tw-text-opacity,1))}.text-amber-700{--tw-text-opacity:1;color:rgb(180 83 9/var(--tw-text-opacity,1))}.text-amber-800{--tw-text-opacity:1;color:rgb(146 64 14/var(--tw-text-opacity,1))}.text-amber-900{--tw-text-opacity:1;color:rgb(120 53 15/var(--tw-text-opacity,1))}.text-brand-500{--tw-text-opacity:1;color:rgb(2 132 199/var(--tw-text-opacity,1))}.text-brand-600{--tw-text-opacity:1;color:rgb(3 105 161/var(--tw-text-opacity,1))}.text-emerald-700{--tw-text-opacity:1;color:rgb(4 120 87/var(--tw-text-opacity,1))}.text-emerald-800{--tw-text-opacity:1;color:rgb(6 95 70/var(--tw-text-opacity,1))}.text-emerald-900{--tw-text-opacity:1;color:rgb(6 78 59/var(--tw-text-opacity,1))}.text-indigo-600{--tw-text-opacity:1;color:rgb(79 70 229/var(--tw-text-opacity,1))}.text-indigo-700{--tw-text-opacity:1;color:rgb(67 56 202/var(--tw-text-opacity,1))}.text-indigo-900{--tw-text-opacity:1;color:rgb(49 46 129/var(--tw-text-opacity,1))}.text-purple-600{--tw-text-opacity:1;color:rgb(147 51 234/var(--tw-text-opacity,1))}.text-purple-800{--tw-text-opacity:1;color:rgb(107 33 168/var(--tw-text-opacity,1))}.text-purple-900{--tw-text-opacity:1;color:rgb(88 28 135/var(--tw-text-opacity,1))}.text-rose-600{--tw-text-opacity:1;color:rgb(225 29 72/var(--tw-text-opacity,1))}.text-rose-900{--tw-text-opacity:1;color:rgb(136 19 55/var(--tw-text-opacity,1))}.text-sky-100{--tw-text-opacity:1;color:rgb(224 242 254/var(--tw-text-opacity,1))}.text-sky-200{--tw-text-opacity:1;color:rgb(186 230 253/var(--tw-text-opacity,1))}.text-sky-300{--tw-text-opacity:1;color:rgb(125 211 252/var(--tw-text-opacity,1))}.text-slate-200{--tw-text-opacity:1;color:rgb(226 232 240/var(--tw-text-opacity,1))}.text-slate-300{--tw-text-opacity:1;color:rgb(203 213 225/var(--tw-text-opacity,1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184/var(--tw-text-opacity,1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139/var(--tw-text-opacity,1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105/var(--tw-text-opacity,1))}.text-slate-700{--tw-text-opacity:1;color:rgb(51 65 85/var(--tw-text-opacity,1))}.text-slate-800{--tw-text-opacity:1;color:rgb(30 41 59/var(--tw-text-opacity,1))}.text-slate-900{--tw-text-opacity:1;color:rgb(15 23 42/var(--tw-text-opacity,1))}.text-teal-600{--tw-text-opacity:1;color:rgb(13 148 136/var(--tw-text-opacity,1))}.text-teal-700{--tw-text-opacity:1;color:rgb(15 118 110/var(--tw-text-opacity,1))}.text-teal-800{--tw-text-opacity:1;color:rgb(17 94 89/var(--tw-text-opacity,1))}.text-teal-900{--tw-text-opacity:1;color:rgb(19 78 74/var(--tw-text-opacity,1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.underline{text-decoration-line:underline}.accent-brand-600{accent-color:#0369a1}.shadow{--tw-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px -1px rgba(0,0,0,.1);--tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color),0 1px 2px -1px var(--tw-shadow-color)}.shadow,.shadow-2xl{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgba(0,0,0,.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color),0 4px 6px -4px var(--tw-shadow-color)}.shadow-lg,.shadow-md{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color),0 2px 4px -2px var(--tw-shadow-color)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgba(0,0,0,.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color)}.shadow-sm,.shadow-xl{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color),0 8px 10px -6px var(--tw-shadow-color)}.outline-none{outline:2px solid transparent;outline-offset:2px}.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur{--tw-backdrop-blur:blur(8px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-colors{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.duration-200{transition-duration:.2s}.hover\:border-brand-500:hover{--tw-border-opacity:1;border-color:rgb(2 132 199/var(--tw-border-opacity,1))}.hover\:bg-amber-200:hover{--tw-bg-opacity:1;background-color:rgb(253 230 138/var(--tw-bg-opacity,1))}.hover\:bg-amber-600:hover{--tw-bg-opacity:1;background-color:rgb(217 119 6/var(--tw-bg-opacity,1))}.hover\:bg-emerald-100:hover{--tw-bg-opacity:1;background-color:rgb(209 250 229/var(--tw-bg-opacity,1))}.hover\:bg-emerald-700:hover{--tw-bg-opacity:1;background-color:rgb(4 120 87/var(--tw-bg-opacity,1))}.hover\:bg-indigo-700:hover{--tw-bg-opacity:1;background-color:rgb(67 56 202/var(--tw-bg-opacity,1))}.hover\:bg-rose-200:hover{--tw-bg-opacity:1;background-color:rgb(254 205 211/var(--tw-bg-opacity,1))}.hover\:bg-slate-200:hover{--tw-bg-opacity:1;background-color:rgb(226 232 240/var(--tw-bg-opacity,1))}.hover\:bg-slate-300:hover{--tw-bg-opacity:1;background-color:rgb(203 213 225/var(--tw-bg-opacity,1))}.hover\:bg-teal-200:hover{--tw-bg-opacity:1;background-color:rgb(153 246 228/var(--tw-bg-opacity,1))}.hover\:bg-teal-700:hover{--tw-bg-opacity:1;background-color:rgb(15 118 110/var(--tw-bg-opacity,1))}.hover\:text-slate-600:hover{--tw-text-opacity:1;color:rgb(71 85 105/var(--tw-text-opacity,1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.hover\:underline:hover{text-decoration-line:underline}.focus\:ring-2:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.focus\:ring-emerald-500:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(16 185 129/var(--tw-ring-opacity,1))}.focus\:ring-indigo-500:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(99 102 241/var(--tw-ring-opacity,1))}.dark\:inline:is(.dark *){display:inline}.dark\:hidden:is(.dark *){display:none}.dark\:border-amber-700\/50:is(.dark *){border-color:rgba(180,83,9,.5)}.dark\:border-slate-600:is(.dark *){--tw-border-opacity:1;border-color:rgb(71 85 105/var(--tw-border-opacity,1))}.dark\:border-slate-700:is(.dark *){--tw-border-opacity:1;border-color:rgb(51 65 85/var(--tw-border-opacity,1))}.dark\:border-teal-700\/50:is(.dark *){border-color:rgba(15,118,110,.5)}.dark\:bg-amber-900\/20:is(.dark *){background-color:rgba(120,53,15,.2)}.dark\:bg-amber-900\/50:is(.dark *){background-color:rgba(120,53,15,.5)}.dark\:bg-brand-700\/20:is(.dark *){background-color:rgba(7,89,133,.2)}.dark\:bg-rose-900\/50:is(.dark *){background-color:rgba(136,19,55,.5)}.dark\:bg-slate-600:is(.dark *){--tw-bg-opacity:1;background-color:rgb(71 85 105/var(--tw-bg-opacity,1))}.dark\:bg-slate-700:is(.dark *){--tw-bg-opacity:1;background-color:rgb(51 65 85/var(--tw-bg-opacity,1))}.dark\:bg-slate-700\/40:is(.dark *){background-color:rgba(51,65,85,.4)}.dark\:bg-slate-700\/50:is(.dark *){background-color:rgba(51,65,85,.5)}.dark\:bg-slate-700\/60:is(.dark *){background-color:rgba(51,65,85,.6)}.dark\:bg-slate-800:is(.dark *){--tw-bg-opacity:1;background-color:rgb(30 41 59/var(--tw-bg-opacity,1))}.dark\:bg-slate-800\/80:is(.dark *){background-color:rgba(30,41,59,.8)}.dark\:bg-slate-800\/90:is(.dark *){background-color:rgba(30,41,59,.9)}.dark\:bg-slate-900:is(.dark *){--tw-bg-opacity:1;background-color:rgb(15 23 42/var(--tw-bg-opacity,1))}.dark\:bg-teal-900\/50:is(.dark *){background-color:rgba(19,78,74,.5)}.dark\:text-amber-200:is(.dark *){--tw-text-opacity:1;color:rgb(253 230 138/var(--tw-text-opacity,1))}.dark\:text-amber-300:is(.dark *){--tw-text-opacity:1;color:rgb(252 211 77/var(--tw-text-opacity,1))}.dark\:text-amber-400:is(.dark *){--tw-text-opacity:1;color:rgb(251 191 36/var(--tw-text-opacity,1))}.dark\:text-emerald-200:is(.dark *){--tw-text-opacity:1;color:rgb(167 243 208/var(--tw-text-opacity,1))}.dark\:text-emerald-300:is(.dark *){--tw-text-opacity:1;color:rgb(110 231 183/var(--tw-text-opacity,1))}.dark\:text-indigo-200:is(.dark *){--tw-text-opacity:1;color:rgb(199 210 254/var(--tw-text-opacity,1))}.dark\:text-indigo-300:is(.dark *){--tw-text-opacity:1;color:rgb(165 180 252/var(--tw-text-opacity,1))}.dark\:text-purple-200:is(.dark *){--tw-text-opacity:1;color:rgb(233 213 255/var(--tw-text-opacity,1))}.dark\:text-purple-300:is(.dark *){--tw-text-opacity:1;color:rgb(216 180 254/var(--tw-text-opacity,1))}.dark\:text-purple-400:is(.dark *){--tw-text-opacity:1;color:rgb(192 132 252/var(--tw-text-opacity,1))}.dark\:text-rose-200:is(.dark *){--tw-text-opacity:1;color:rgb(254 205 211/var(--tw-text-opacity,1))}.dark\:text-rose-400:is(.dark *){--tw-text-opacity:1;color:rgb(251 113 133/var(--tw-text-opacity,1))}.dark\:text-slate-100:is(.dark *){--tw-text-opacity:1;color:rgb(241 245 249/var(--tw-text-opacity,1))}.dark\:text-slate-200:is(.dark *){--tw-text-opacity:1;color:rgb(226 232 240/var(--tw-text-opacity,1))}.dark\:text-slate-300:is(.dark *){--tw-text-opacity:1;color:rgb(203 213 225/var(--tw-text-opacity,1))}.dark\:text-slate-400:is(.dark *){--tw-text-opacity:1;color:rgb(148 163 184/var(--tw-text-opacity,1))}.dark\:text-teal-200:is(.dark *){--tw-text-opacity:1;color:rgb(153 246 228/var(--tw-text-opacity,1))}.dark\:text-teal-300:is(.dark *){--tw-text-opacity:1;color:rgb(94 234 212/var(--tw-text-opacity,1))}.dark\:text-teal-400:is(.dark *){--tw-text-opacity:1;color:rgb(45 212 191/var(--tw-text-opacity,1))}.dark\:text-white:is(.dark *){--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.dark\:hover\:bg-slate-600:hover:is(.dark *){--tw-bg-opacity:1;background-color:rgb(71 85 105/var(--tw-bg-opacity,1))}.dark\:hover\:text-white:hover:is(.dark *){--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}@media (min-width:640px){.sm\:col-span-1{grid-column:span 1/span 1}.sm\:block{display:block}.sm\:grid-cols-5{grid-template-columns:repeat(5,minmax(0,1fr))}.sm\:flex-row{flex-direction:row}.sm\:gap-3{gap:.75rem}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}}@media (min-width:768px){.md\:col-span-2{grid-column:span 2/span 2}.md\:inline{display:inline}.md\:w-64{width:16rem}.md\:w-auto{width:auto}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.md\:flex-row{flex-direction:row}.md\:items-center{align-items:center}.md\:p-12{padding:3rem}.md\:p-8{padding:2rem}.md\:text-3xl{font-size:1.875rem;line-height:2.25rem}.md\:text-base{font-size:1rem;line-height:1.5rem}.md\:text-lg{font-size:1.125rem;line-height:1.75rem}.md\:text-sm{font-size:.875rem;line-height:1.25rem}}@media (min-width:1024px){.lg\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.lg\:px-8{padding-left:2rem;padding-right:2rem}}
+</style>
+
+    <style>
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #printableLetter, #printableLetter * {
+                visibility: visible;
+            }
+            #printableLetter {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                margin: 0;
+                padding: 20px;
+                box-shadow: none !important;
+                border: none !important;
+            }
+        }
+    </style>
+
+    <!-- SONDER-SCHUTZ: Frame-Killer Skript gegen Missbrauch auf Drittseiten -->
+    <script>
+        try {
+            if (window.top !== window.self) {
+                // Prüfen ob Zugriff erlaubt ist, andernfalls aus iFrame ausbrechen
+                window.top.location = window.self.location;
+            }
+        } catch (e) {
+            console.log("iFrame-Sicherheitsprüfung aktiv.");
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 transition-colors duration-200 min-h-screen flex flex-col">
+
+    <!-- NAVIGATION / HEADER -->
+    <header class="sticky top-0 z-40 bg-white/90 dark:bg-slate-800/90 backdrop-blur border-b border-slate-200 dark:border-slate-700 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="bg-brand-600 text-white p-2.5 rounded-2xl shadow-md">
+                    <i class="fa-solid fa-hand-holding-heart text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="font-extrabold text-base md:text-lg text-slate-900 dark:text-white leading-tight">Pflege-Kompass SGB XI</h1>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 font-medium hidden sm:block">Kostenfreie Orientierung für Betroffene &amp; Angehörige</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2 sm:gap-3">
+
+                <!-- PAYPAL DANKE-SCHÖN BUTTON -->
+                <a href="https://www.paypal.com/myaccount/transfer/homepage/external/send?recipient=guido.veithen%40gmx.de" target="_blank" rel="noopener noreferrer" title="Danke-Schön per PayPal senden (Geld an Freunde)" class="inline-flex items-center gap-1.5 bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold py-2 px-3 rounded-xl shadow transition">
+                    <i class="fa-solid fa-heart text-white"></i>
+                    <span>Danke-Schön</span>
+                </a>
+
+                <!-- SENIOR / BARRIEREFREI SCHALTER -->
+                <button onclick="toggleSeniorMode()" type="button" title="Schriftgröße vergrößern" class="p-2 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 rounded-xl text-slate-700 dark:text-slate-200 transition font-bold text-xs flex items-center gap-1">
+                    <i class="fa-solid fa-font text-base"></i><span class="hidden md:inline">Lesbarkeit</span>
+                </button>
+
+                <!-- DARK MODE SWITCH -->
+                <button onclick="toggleDarkMode()" type="button" title="Dunkelmodus umschalten" class="p-2 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 rounded-xl text-slate-700 dark:text-slate-200 transition">
+                    <i class="fa-solid fa-moon dark:hidden"></i>
+                    <i class="fa-solid fa-sun hidden dark:inline text-amber-400"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8 flex-grow w-full">
+
+        <!-- STATUS BANNER & STAND DER PFLEGESÄTZE -->
+        <div class="bg-gradient-to-r from-brand-600 to-indigo-700 rounded-3xl p-6 md:p-8 text-white shadow-xl relative overflow-hidden">
+            <div class="relative z-10 space-y-3 max-w-3xl">
+                <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">
+                    <i class="fa-solid fa-shield-halved"></i> 100% Kostenlos &bull; Keine Anmeldung &bull; Open-Source
+                </div>
+                <h2 class="text-2xl md:text-3xl font-black leading-tight">Gerechter Überblick im Pflegedschungel</h2>
+                <p class="text-sm md:text-base text-sky-100 leading-relaxed">
+                    Ermitteln Sie Ihre Ansprüche, berechnen Sie Kombinationsleistungen und Eigenanteile für den Pflegedienst oder das Pflegeheim und erstellen Sie direkt fertige Anträge an die Pflegekasse.
+                </p>
+                <div class="pt-2 flex flex-wrap items-center gap-4 text-xs font-semibold text-sky-200">
+                    <span id="dataStatusBadge" class="bg-black/20 px-3 py-1.5 rounded-xl border border-white/10">
+                        <i class="fa-solid fa-calendar-check text-sky-300"></i> Beträge gültig seit 01.01.2025, unverändert 2026 (geprüft: November 2026)
+                    </span>
+                    <a href="https://betanet.de/files/pdf/Pflegeleistungen--Tabelle.pdf" target="_blank" rel="noopener noreferrer" class="underline hover:text-white transition flex items-center gap-1">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Beträge selbst nachprüfen
+                    </a>
+                </div>
+                <p class="text-xs text-sky-100 flex items-center gap-2">
+                    <i class="fa-solid fa-lock"></i> Ihre Eingaben bleiben auf Ihrem Gerät. Nichts wird gespeichert oder versendet. Keine Cookies, kein Tracking.
+                </p>
+                <p class="text-xs text-sky-100 bg-black/20 rounded-xl px-3 py-2 border border-white/10 max-w-3xl">
+                    <i class="fa-solid fa-circle-info"></i> Für 2027 berät der Bundestag eine Pflegereform (Abstimmung für Dezember 2026 geplant). Ab 01.01.2027 können sich Beträge und Leistungen ändern. Diese Seite wird nach der Verabschiedung aktualisiert.
+                </p>
+            </div>
+        </div>
+
+        <!-- FRAGEN-ASSISTENT (OHNE KI, GEPRÜFTE ANTWORTEN) -->
+        <section id="questionSection" class="bg-white dark:bg-slate-800 rounded-3xl p-6 shadow-sm border border-slate-200 dark:border-slate-700 space-y-4">
+            <div class="flex items-center gap-3">
+                <div class="bg-emerald-600 text-white p-2.5 rounded-2xl">
+                    <i class="fa-solid fa-circle-question text-xl"></i>
+                </div>
+                <div>
+                    <h2 class="text-lg font-bold text-slate-900 dark:text-white">Ihre Frage zur Pflege</h2>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Stichwort oder Frage eingeben, z. B. „Wie beantrage ich Pflegehilfsmittel?“</p>
+                </div>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-2">
+                <label for="questionInput" class="sr-only">Ihre Frage</label>
+                <input type="text" id="questionInput" placeholder="Frage eingeben..." onkeydown="if(event.key==='Enter'){answerQuestion();}" class="flex-grow p-3 bg-slate-50 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-xl text-sm text-slate-900 dark:text-white focus:ring-2 focus:ring-emerald-500 outline-none">
+                <button type="button" onclick="answerQuestion()" class="bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-bold py-3 px-5 rounded-xl transition flex items-center justify-center gap-2 cursor-pointer">
+                    <i class="fa-solid fa-magnifying-glass"></i> Antwort finden
+                </button>
+            </div>
+            <div id="questionChips" class="flex flex-wrap gap-2"></div>
+            <div id="answerArea" class="space-y-3" aria-live="polite"></div>
+            <p class="text-[11px] text-slate-500 dark:text-slate-400">Die Antworten sind fest hinterlegt und geprüft (keine KI). Sie ersetzen keine Rechtsberatung. Verbindliche Auskunft gibt Ihre Pflegekasse oder ein Pflegestützpunkt.</p>
+        </section>
+
+        <!-- NOTFALL- & ERSTE-HILFE BEREICH (MEISTGEBRAUCHTE FORMULARE) -->
+        <section class="bg-amber-50 dark:bg-slate-800/80 border border-amber-200 dark:border-slate-700 rounded-3xl p-6 shadow-sm">
+            <div class="flex items-center gap-3 mb-4">
+                <div class="bg-amber-500 text-white p-2 rounded-xl">
+                    <i class="fa-solid fa-kit-medical text-lg"></i>
+                </div>
+                <div>
+                    <h2 class="text-lg font-bold text-slate-900 dark:text-white">Erste Hilfe &amp; Soziale Notfall-Bausteine</h2>
+                    <p class="text-xs text-slate-600 dark:text-slate-400">Die wichtigsten Schritte zu Beginn der Pflegesituation auf einen Blick</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <!-- 1. Vorsorgevollmacht -->
+                <div class="bg-white dark:bg-slate-800 p-5 rounded-2xl border border-amber-200 dark:border-slate-700 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-2 text-amber-600 dark:text-amber-400 font-bold text-sm mb-2">
+                            <i class="fa-solid fa-file-contract text-lg"></i> 1. Vorsorgevollmacht
+                        </div>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Ohne Vollmacht dürfen selbst Ehepartner oder Kinder keine Kassenanträge stellen oder Verträge unterschreiben.
+                        </p>
+                    </div>
+                    <a href="https://www.bmj.de/DE/service/formulare/form_vorsorgevollmacht.html" target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex items-center justify-center gap-1.5 bg-amber-100 dark:bg-amber-900/50 hover:bg-amber-200 text-amber-900 dark:text-amber-200 text-xs font-bold py-2.5 px-3 rounded-xl transition">
+                        <i class="fa-solid fa-download"></i> Offizielle Vorlage (BMJ)
+                    </a>
+                </div>
+
+                <!-- 2. Pflege-Tagebuch Vorbereitung für MD -->
+                <div class="bg-white dark:bg-slate-800 p-5 rounded-2xl border border-amber-200 dark:border-slate-700 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-2 text-teal-600 dark:text-teal-400 font-bold text-sm mb-2">
+                            <i class="fa-solid fa-book-medical text-lg"></i> 2. Pflege-Tagebuch (MD-Besuch)
+                        </div>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Der Medizinische Dienst (MD) begutachtet den alltäglichen Hilfebedarf. Vorbereitung sichert den richtigen Pflegegrad.
+                        </p>
+                    </div>
+                    <button type="button" onclick="toggleDiaryGuide()" class="mt-4 inline-flex items-center justify-center gap-1.5 bg-teal-100 dark:bg-teal-900/50 hover:bg-teal-200 text-teal-900 dark:text-teal-200 text-xs font-bold py-2.5 px-3 rounded-xl transition cursor-pointer">
+                        <i class="fa-solid fa-list-check"></i> Checkliste anzeigen
+                    </button>
+                </div>
+
+                <!-- 3. Widerspruchs-Assistent bei Ablehnung -->
+                <div class="bg-white dark:bg-slate-800 p-5 rounded-2xl border border-amber-200 dark:border-slate-700 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-2 text-rose-600 dark:text-rose-400 font-bold text-sm mb-2">
+                            <i class="fa-solid fa-triangle-exclamation text-lg"></i> 3. Pflegegrad abgelehnt?
+                        </div>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Bescheid zu niedrig oder abgelehnt? Sie haben exakt <strong>1 Monat Zeit</strong> für einen fristwahrenden Widerspruch.
+                        </p>
+                    </div>
+                    <button type="button" onclick="selectWiderspruch()" class="mt-4 inline-flex items-center justify-center gap-1.5 bg-rose-100 dark:bg-rose-900/50 hover:bg-rose-200 text-rose-900 dark:text-rose-200 text-xs font-bold py-2.5 px-3 rounded-xl transition cursor-pointer">
+                        <i class="fa-solid fa-gavel"></i> Widerspruch erstellen
+                    </button>
+                </div>
+            </div>
+
+            <!-- AUSKLAPPBARES PFLEGETAGEBUCH CHECKLISTEN-MODAL -->
+            <div id="diaryModal" class="hidden mt-6 bg-white dark:bg-slate-800 border border-teal-200 dark:border-teal-700/50 rounded-2xl p-5 shadow-lg">
+                <div class="flex justify-between items-center mb-4 border-b border-teal-200 dark:border-slate-700 pb-3">
+                    <h3 class="font-bold text-teal-900 dark:text-teal-300 text-base flex items-center gap-2">
+                        <i class="fa-solid fa-clipboard-list text-teal-600"></i> Checkliste für die Gutachter-Vorbereitung (MD)
+                    </h3>
+                    <button type="button" onclick="toggleDiaryGuide()" class="text-slate-400 hover:text-slate-600 dark:hover:text-white font-bold p-1">
+                        <i class="fa-solid fa-xmark text-lg"></i>
+                    </button>
+                </div>
+                <div class="space-y-3 text-xs text-slate-700 dark:text-slate-200">
+                    <p class="font-semibold text-teal-900 dark:text-teal-200">Achten Sie bei der Vorbereitung besonders auf folgende 6 Module des Gutachtens:</p>
+                    <ul class="list-disc pl-5 space-y-1.5 leading-relaxed">
+                        <li><strong>Mobilität:</strong> Aufstehen aus dem Bett, Treppensteigen, Fortbewegen in der Wohnung, Halten der Balance.</li>
+                        <li><strong>Kognitive &amp; kommunikative Fähigkeiten:</strong> Orientierung (zeitlich/räumlich), Wiedererkennen von Angehörigen, Treffen von Entscheidungen im Alltag.</li>
+                        <li><strong>Verhaltensweisen &amp; psychische Problemlagen:</strong> Unruhe in der Nacht, Ängste, Aggressionen, Abwehren von Pflegemaßnahmen.</li>
+                        <li><strong>Selbstversorgung:</strong> Hilfebedarf beim Waschen, Duschen, An-/Auskleiden, Essen zubereiten und Mundpflege.</li>
+                        <li><strong>Umgang mit krankheitsbedingten Anforderungen:</strong> Unterstützung bei Medikamenteneinnahme, Blutzuckermessen, Verbandswechsel oder Arztbesuchen.</li>
+                        <li><strong>Gestaltung des Alltagslebens:</strong> Pflege von Kontakten, Tagesstrukturierung, eigenständiges Beschäftigen.</li>
+                    </ul>
+                    <div class="pt-2 flex justify-end">
+                        <button type="button" onclick="toggleDiaryGuide()" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-xl text-xs transition">
+                            Schließen
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PFLEGESTÜTZPUNKT-SUCHE / KOSTENLOSE BERATUNGSSTELLEN -->
+        <section id="supportSection" class="bg-white dark:bg-slate-800 rounded-3xl p-6 shadow-sm border border-slate-200 dark:border-slate-700">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+                <div class="flex items-center gap-3">
+                    <div class="bg-indigo-600 text-white p-2.5 rounded-2xl">
+                        <i class="fa-solid fa-location-dot text-xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-lg font-bold text-slate-900 dark:text-white">Hilfe und Beratung in Ihrer Nähe</h2>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Postleitzahl eingeben: kostenlose Beratung, Treffpunkte und Alltagshilfen</p>
+                    </div>
+                </div>
+
+                <!-- SUCHMASKE -->
+                <div class="flex items-center gap-2 w-full md:w-auto">
+                    <input type="text" id="locationSearchInput" placeholder="Postleitzahl, z. B. 50931" inputmode="numeric" maxlength="5" onkeydown="if(event.key==='Enter'){searchSupportCenters();}" class="p-2.5 bg-slate-50 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-xl text-xs text-slate-900 dark:text-white font-medium focus:ring-2 focus:ring-indigo-500 outline-none w-full md:w-64">
+                    <button type="button" onclick="searchSupportCenters()" class="bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold py-2.5 px-4 rounded-xl transition flex items-center gap-1.5 whitespace-nowrap cursor-pointer">
+                        <i class="fa-solid fa-magnifying-glass"></i> Hilfe finden
+                    </button>
+                </div>
+            </div>
+
+            <!-- ERGEBNISSE DER BERATUNGSSTELLEN-SUCHE -->
+            <div id="supportResultsArea" class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="col-span-full p-4 bg-slate-50 dark:bg-slate-700/50 rounded-2xl text-center text-xs text-slate-500 dark:text-slate-400">
+                    Geben Sie Ihre Postleitzahl ein. Für Köln zeigen wir die örtlichen Angebote direkt an, für alle anderen Orte die passenden offiziellen Suchseiten.
+                </div>
+            </div>
+        </section>
+
+        <!-- PFLEGEGRAD AUSWAHL & LEISTUNGSÜBERSICHT -->
+        <section class="bg-white dark:bg-slate-800 rounded-3xl p-6 shadow-sm border border-slate-200 dark:border-slate-700 space-y-6">
+            <div class="flex items-center gap-3">
+                <div class="bg-brand-600 text-white p-2.5 rounded-2xl">
+                    <i class="fa-solid fa-calculator text-xl"></i>
+                </div>
+                <div>
+                    <h2 class="text-lg font-bold text-slate-900 dark:text-white">Anspruchs- &amp; Pflegegrad-Rechner</h2>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Wählen Sie den zutreffenden Pflegegrad aus</p>
+                </div>
+            </div>
+
+            <!-- PFLEGEGRAD BUTTONS -->
+            <div class="grid grid-cols-2 sm:grid-cols-5 gap-3" id="pflegegradSelector">
+                <button type="button" onclick="selectPflegegrad(1)" id="pgBtn1" class="pg-btn p-4 rounded-2xl border-2 border-slate-200 dark:border-slate-700 hover:border-brand-500 text-center transition cursor-pointer">
+                    <span class="block text-xs text-slate-400 uppercase font-bold">Pflegegrad</span>
+                    <span class="block text-2xl font-black text-slate-800 dark:text-white">1</span>
+                    <span class="block text-[10px] text-slate-500 mt-1">Geringe Beeinträchtigung</span>
+                </button>
+                <button type="button" onclick="selectPflegegrad(2)" id="pgBtn2" class="pg-btn p-4 rounded-2xl border-2 border-brand-600 bg-brand-50 dark:bg-brand-700/20 text-center transition cursor-pointer">
+                    <span class="block text-xs text-brand-600 dark:text-brand-300 uppercase font-bold">Pflegegrad</span>
+                    <span class="block text-2xl font-black text-brand-600 dark:text-brand-300">2</span>
+                    <span class="block text-[10px] text-slate-500 dark:text-slate-400 mt-1">Erhebliche Beeinträchtigung</span>
+                </button>
+                <button type="button" onclick="selectPflegegrad(3)" id="pgBtn3" class="pg-btn p-4 rounded-2xl border-2 border-slate-200 dark:border-slate-700 hover:border-brand-500 text-center transition cursor-pointer">
+                    <span class="block text-xs text-slate-400 uppercase font-bold">Pflegegrad</span>
+                    <span class="block text-2xl font-black text-slate-800 dark:text-white">3</span>
+                    <span class="block text-[10px] text-slate-500 mt-1">Schwere Beeinträchtigung</span>
+                </button>
+                <button type="button" onclick="selectPflegegrad(4)" id="pgBtn4" class="pg-btn p-4 rounded-2xl border-2 border-slate-200 dark:border-slate-700 hover:border-brand-500 text-center transition cursor-pointer">
+                    <span class="block text-xs text-slate-400 uppercase font-bold">Pflegegrad</span>
+                    <span class="block text-2xl font-black text-slate-800 dark:text-white">4</span>
+                    <span class="block text-[10px] text-slate-500 mt-1">Schwerste Beeinträchtigung</span>
+                </button>
+                <button type="button" onclick="selectPflegegrad(5)" id="pgBtn5" class="pg-btn p-4 rounded-2xl border-2 border-slate-200 dark:border-slate-700 hover:border-brand-500 text-center transition cursor-pointer col-span-2 sm:col-span-1">
+                    <span class="block text-xs text-slate-400 uppercase font-bold">Pflegegrad</span>
+                    <span class="block text-2xl font-black text-slate-800 dark:text-white">5</span>
+                    <span class="block text-[10px] text-slate-500 mt-1">Schwerste mit Härte</span>
+                </button>
+            </div>
+
+            <!-- LEISTUNGS-KARTEN DYNAMISCH -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" id="benefitCardsArea">
+                <!-- Dynamisch generiert -->
+            </div>
+        </section>
+
+        <!-- RECHNER 2: KOMBINATIONSLEISTUNG RECHNER -->
+        <section id="kombiSection" class="bg-white dark:bg-slate-800 rounded-3xl p-6 shadow-sm border border-slate-200 dark:border-slate-700 space-y-6">
+            <div class="flex items-center gap-3">
+                <div class="bg-teal-600 text-white p-2.5 rounded-2xl">
+                    <i class="fa-solid fa-sliders text-xl"></i>
+                </div>
+                <div>
+                    <h2 class="text-lg font-bold text-slate-900 dark:text-white">Kombinationsleistungs-Rechner (§ 38 SGB XI)</h2>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Nutzen Sie Geld- und Sachleistungen (Pflegedienst) gleichzeitig?</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                <div class="space-y-4">
+                    <div>
+                        <label for="sachleistungUsageRange" class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                            Genutzter Pflegedienst-Anteil (Sachleistung): <span id="sachleistungPercentLabel" class="text-brand-600 font-black">50%</span>
+                        </label>
+                        <input type="range" id="sachleistungUsageRange" min="0" max="100" value="50" oninput="updateKombiCalc()" class="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-brand-600">
+                    </div>
+                    <div class="text-xs text-slate-500 dark:text-slate-400 space-y-1">
+                        <p>Max. Pflegedienst-Budget (100%): <strong id="maxSachVal" class="text-slate-800 dark:text-white">796 €</strong></p>
+                        <p>Max. Pflegegeld-Volumen (100%): <strong id="maxGeldVal" class="text-slate-800 dark:text-white">347 €</strong></p>
+                    </div>
+                </div>
+
+                <div class="bg-teal-50 dark:bg-slate-700/50 border border-teal-200 dark:border-slate-600 rounded-2xl p-5 text-center space-y-2">
+                    <span class="text-xs font-bold uppercase text-teal-800 dark:text-teal-300">Verbleibendes Pflegegeld zur Auszahlung</span>
+                    <div id="kombiResultVal" class="text-3xl font-black text-teal-700 dark:text-teal-300">166,00 € / Monat</div>
+                    <p class="text-[11px] text-slate-600 dark:text-slate-300">
+                        Sie schöpfen <span id="usedSachEuro">386,50 €</span> Sachleistungen ab. Der verbleibende Prozentsatz wird Ihnen als Pflegegeld ausgezahlt.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- RECHNER 3: PFLEGEHEIM & EIGENANTEILS-RECHNER -->
+        <section id="heimSection" class="bg-white dark:bg-slate-800 rounded-3xl p-6 shadow-sm border border-slate-200 dark:border-slate-700 space-y-6">
+            <div class="flex items-center gap-3">
+                <div class="bg-purple-600 text-white p-2.5 rounded-2xl">
+                    <i class="fa-solid fa-hospital-user text-xl"></i>
+                </div>
+                <div>
+                    <h2 class="text-lg font-bold text-slate-900 dark:text-white">Pflegeheim- &amp; Eigenanteilsrechner (§ 43c SGB XI)</h2>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Berechnen Sie die monatlichen Zuzahlungen inkl. gesetzlichem Leistungszuschlag</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                    <label for="heimGesamtkosten" class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Monatliche Gesamtkosten des Heims (€)</label>
+                    <input type="number" id="heimGesamtkosten" value="3200" oninput="updateHeimCalc()" class="w-full p-2.5 bg-slate-50 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-xl text-slate-900 dark:text-white font-semibold text-sm">
+                </div>
+                <div>
+                    <label for="heimEEEKosten" class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Davon einrichtungseinheitlicher Eigenanteil für Pflege (EEE, €)</label>
+                    <input type="number" id="heimEEEKosten" value="1100" oninput="updateHeimCalc()" class="w-full p-2.5 bg-slate-50 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-xl text-slate-900 dark:text-white font-semibold text-sm">
+                </div>
+                <div>
+                    <label for="heimDauerSelect" class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Aufenthaltsdauer im Heim</label>
+                    <select id="heimDauerSelect" onchange="updateHeimCalc()" class="w-full p-2.5 bg-slate-50 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-xl text-slate-900 dark:text-white font-semibold text-sm">
+                        <option value="1">1. Jahr (15 % Zuschuss)</option>
+                        <option value="2">2. Jahr (30 % Zuschuss)</option>
+                        <option value="3">3. Jahr (50 % Zuschuss)</option>
+                        <option value="4">Ab 4. Jahr (75 % Zuschuss)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="bg-purple-50 dark:bg-slate-700/40 border border-purple-200 dark:border-slate-600 rounded-2xl p-5 grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+                <div>
+                    <span class="text-[11px] font-bold text-purple-800 dark:text-purple-300 uppercase">Gezahlter Kassenbeitrag</span>
+                    <div id="heimKasseVal" class="text-xl font-bold text-slate-800 dark:text-white mt-1">805,00 €</div>
+                </div>
+                <div>
+                    <span class="text-[11px] font-bold text-purple-800 dark:text-purple-300 uppercase">Gesetzlicher Zuschlag (§ 43c)</span>
+                    <div id="heimZuschlagVal" class="text-xl font-bold text-purple-600 dark:text-purple-400 mt-1">165,00 € (15%)</div>
+                </div>
+                <div>
+                    <span class="text-[11px] font-bold text-purple-900 dark:text-purple-200 uppercase">Tatsächlicher Eigenanteil</span>
+                    <div id="heimEigenanteilResult" class="text-2xl font-black text-rose-600 dark:text-rose-400 mt-1">2.265,00 € / Monat</div>
+                </div>
+            </div>
+
+            <!-- HINWEIS: ANGEHÖRIGEN-ENTLASTUNGSGESETZ (§ 94 SGB XII) -->
+            <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700/50 rounded-2xl p-4 flex items-start gap-3 text-xs text-amber-900 dark:text-amber-200">
+                <i class="fa-solid fa-shield-cat text-amber-600 dark:text-amber-400 text-lg mt-0.5"></i>
+                <div class="space-y-1">
+                    <strong class="block font-bold">Schutz für Angehörige (Angehörigen-Entlastungsgesetz - § 94 SGB XII):</strong>
+                    <p class="leading-relaxed">
+                        Reicht das Einkommen/Rente des Pflegebedürftigen für den Eigenanteil nicht aus, springt zunächst das Sozialamt ein („Hilfe zur Pflege“). Kinder werden erst ab einem <strong>jährlichen Bruttogesamteinkommen von über 100.000 €</strong> herangezogen. Schwiegerkinder haften grundsätzlich nicht.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ANTRAGS-GENERATOR MIT LIVE GRAPHISCHER BRIEF-VORSCHAU (PAPIER-OPTIK) -->
+        <section id="letterGeneratorSection" class="bg-white dark:bg-slate-800 rounded-3xl p-6 shadow-sm border border-slate-200 dark:border-slate-700 space-y-6">
+            <div class="flex items-center gap-3">
+                <div class="bg-indigo-600 text-white p-2.5 rounded-2xl">
+                    <i class="fa-solid fa-file-signature text-xl"></i>
+                </div>
+                <div>
+                    <h2 class="text-lg font-bold text-slate-900 dark:text-white">Antrags- &amp; Schreiben-Generator</h2>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Erstellen Sie in Echtzeit Ihr fertiges Formschreiben zur Vorlage bei der Pflegekasse</p>
+                    <p class="text-xs text-emerald-700 dark:text-emerald-300 font-semibold mt-1"><i class="fa-solid fa-lock"></i> Ihre Angaben verlassen Ihr Gerät nicht. Beim Schließen der Seite sind sie gelöscht.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label for="applicantName" class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Vor- &amp; Nachname des Antragstellers*</label>
+                    <input type="text" id="applicantName" placeholder="z. B. Maria Musterfrau" class="w-full p-2.5 bg-slate-50 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-xl text-slate-900 dark:text-white text-sm">
+                </div>
+                <div>
+                    <label for="applicantStreet" class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Straße &amp; Hausnummer*</label>
+                    <input type="text" id="applicantStreet" placeholder="z. B. Hauptstraße 12" class="w-full p-2.5 bg-slate-50 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-xl text-slate-900 dark:text-white text-sm">
+                </div>
+                <div>
+                    <label for="applicantCity" class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">PLZ &amp; Wohnort*</label>
+                    <input type="text" id="applicantCity" placeholder="z. B. 50667 Köln" class="w-full p-2.5 bg-slate-50 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-xl text-slate-900 dark:text-white text-sm">
+                </div>
+                <div>
+                    <label for="applicantDob" class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Geburtsdatum*</label>
+                    <input type="text" id="applicantDob" placeholder="z. B. 15.04.1948" class="w-full p-2.5 bg-slate-50 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-xl text-slate-900 dark:text-white text-sm">
+                </div>
+                <div>
+                    <label for="insuranceName" class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Name der Krankenkasse / Pflegekasse*</label>
+                    <input type="text" id="insuranceName" placeholder="z. B. AOK / Techniker / Barmer" class="w-full p-2.5 bg-slate-50 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-xl text-slate-900 dark:text-white text-sm">
+                </div>
+                <div>
+                    <label for="insuranceNumber" class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Krankenversicherungsnummer*</label>
+                    <input type="text" id="insuranceNumber" placeholder="z. B. A123456789" class="w-full p-2.5 bg-slate-50 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-xl text-slate-900 dark:text-white text-sm">
+                </div>
+                <div class="md:col-span-2">
+                    <label for="antragType" class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Gewünschter Antragsgegenstand*</label>
+                    <select id="antragType" onchange="updateLetterPreview()" class="w-full p-3 bg-slate-50 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-xl text-slate-900 dark:text-white text-sm font-semibold">
+                        <option value="erstantrag">Erstantrag auf Feststellung eines Pflegegrades (§ 14 SGB XI)</option>
+                        <option value="widerspruch">Widerspruch gegen den Pflegegrad-Bescheid / Einstufung (Fristwahrung)</option>
+                        <option value="hoeherstufung">Antrag auf Höherstufung des Pflegegrades (§ 18 SGB XI)</option>
+                        <option value="entlastung">Antrag auf Entlastungsbetrag (131 €/Monat gem. § 45b SGB XI)</option>
+                        <option value="hilfsmittel">Antrag auf Pflegehilfsmittel zum Verbrauch (bis 42 €/Monat gem. § 40 SGB XI)</option>
+                        <option value="wohnumfeld">Antrag auf Zuschuss zur Wohnumfeldverbesserung (bis zu 4.180 € gem. § 40 Abs. 4 SGB XI)</option>
+                        <option value="kombination">Mitteilung über Inanspruchnahme von Kombinationsleistung (§ 38 SGB XI)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- LIVE GRAPHISCHE BRIEF-VORSCHAU (PAPIER-OPTIK) -->
+            <div class="mt-8 border-t border-slate-200 dark:border-slate-700 pt-6">
+                <div class="flex flex-wrap justify-between items-center mb-4 gap-2">
+                    <h3 class="text-sm font-bold text-slate-800 dark:text-white flex items-center gap-2">
+                        <i class="fa-solid fa-file-lines text-indigo-600"></i> Grafische Live-Vorschau des Schreibens
+                    </h3>
+                    <button type="button" onclick="window.print()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 px-4 rounded-xl text-xs transition flex items-center gap-2 shadow-md cursor-pointer">
+                        <i class="fa-solid fa-print"></i> Antrag drucken / als PDF speichern
+                    </button>
+                </div>
+
+                <!-- BRIEF-PAPIER BEREICH -->
+                <div id="printableLetter" class="bg-white text-slate-900 p-8 md:p-12 rounded-2xl shadow-xl border border-slate-300 max-w-3xl mx-auto font-sans leading-relaxed text-sm my-4">
+                    <!-- Absender Block -->
+                    <div class="flex flex-col md:flex-row justify-between mb-8 gap-6 border-b border-slate-200 pb-6">
+                        <div id="letterSender" class="text-xs text-slate-800 space-y-1">
+                            <!-- Dynamischer Inhalt -->
+                        </div>
+                        <div id="letterDate" class="text-xs font-semibold text-slate-500 self-start">
+                            <!-- Datum -->
+                        </div>
+                    </div>
+
+                    <!-- Empfänger Pflegekasse -->
+                    <div id="letterRecipient" class="mb-8 text-xs font-medium text-slate-800 border-l-2 border-indigo-500 pl-3">
+                        <!-- Empfänger -->
+                    </div>
+
+                    <!-- Betreffzeile -->
+                    <div id="letterSubject" class="font-bold text-base text-slate-900 mb-6 border-b-2 border-slate-900 pb-2">
+                        <!-- Betreff -->
+                    </div>
+
+                    <!-- Brieftext -->
+                    <div id="letterBody" class="space-y-4 text-xs md:text-sm text-slate-800 leading-relaxed mb-10">
+                        <!-- Text -->
+                    </div>
+
+                    <!-- Unterschriftenzeile -->
+                    <div class="mt-12 pt-6 border-t border-slate-200 flex flex-col gap-8">
+                        <p class="text-xs text-slate-700">Mit freundlichen Grüßen,</p>
+                        <div class="border-b border-dashed border-slate-400 w-64 h-8"></div>
+                        <p id="letterSignature" class="text-xs font-bold text-slate-800">[Unterschrift des Antragstellers]</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER / IMPRESSUM & RECHTSLAGE -->
+    <footer class="bg-slate-900 text-slate-400 py-8 border-t border-slate-800 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="flex items-center gap-2 text-white font-bold text-sm">
+                    <i class="fa-solid fa-scale-balanced text-brand-500"></i> <a href="index.html" class="hover:underline">Ein Projekt von Weltverbesserer – alle kostenlosen Werkzeuge</a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="https://www.paypal.com/myaccount/transfer/homepage/external/send?recipient=guido.veithen%40gmx.de" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:underline flex items-center gap-1 font-bold">
+                        <i class="fa-solid fa-mug-hot"></i> Danke-Schön senden
+                    </a>
+                </div>
+            </div>
+            
+            <div class="space-y-2">
+                <details id="impressum" class="bg-slate-800/60 rounded-xl p-3">
+                    <summary class="cursor-pointer font-bold text-slate-200 text-xs">Impressum</summary>
+                    <div class="mt-3 space-y-2 text-[12px] text-slate-300 leading-relaxed">
+                        <p><strong>Angaben gemäß § 5 DDG</strong></p>
+                        <p>Guido Veithen<br>Classen-Kappelmann-Str. 30A<br>50931 Köln<br>Deutschland</p>
+                        <p>E-Mail: g.veithen@online.de</p>
+                        <p>Dieses Angebot ist ein privates, nicht-kommerzielles Projekt. Alle Angaben ohne Gewähr; sie ersetzen keine Rechtsberatung. Für Inhalte verlinkter Seiten sind ausschließlich deren Betreiber verantwortlich.</p>
+                    </div>
+                </details>
+                <details id="datenschutz" class="bg-slate-800/60 rounded-xl p-3">
+                    <summary class="cursor-pointer font-bold text-slate-200 text-xs">Datenschutzerklärung</summary>
+                    <div class="mt-3 space-y-2 text-[12px] text-slate-300 leading-relaxed">
+                        <p><strong>Verantwortlicher:</strong> siehe Impressum.</p>
+                        <p><strong>Ihre Eingaben:</strong> Alle Eingaben (Rechner, Fragenfeld, Antragsgenerator) werden ausschließlich in Ihrem Browser verarbeitet. Sie werden weder gespeichert noch an uns oder Dritte übertragen. Beim Schließen der Seite sind sie gelöscht.</p>
+                        <p><strong>Keine Cookies, kein Tracking:</strong> Diese Seite setzt keine Cookies und verwendet keine Analyse- oder Werbedienste. Schriften, Symbole und Gestaltung sind in die Seite eingebettet; beim Aufruf werden keine Daten an Google oder andere Drittanbieter übertragen.</p>
+                        <p><strong>Hosting:</strong> Die Seite wird über GitHub Pages bereitgestellt (GitHub Inc., USA). Beim Aufruf verarbeitet GitHub technisch notwendige Daten (z. B. IP-Adresse, Zeitpunkt, Browsertyp), um die Seite auszuliefern. Dabei können Daten in die USA übertragen werden. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer funktionierenden Website). Einzelheiten finden Sie in der Datenschutzerklärung von GitHub.</p>
+                        <p><strong>Externe Links:</strong> Links zu anderen Seiten (z. B. PayPal, betanet, ZQP, Bundesministerien) werden erst beim Anklicken geöffnet. Ab dann gelten die Datenschutzbestimmungen des jeweiligen Anbieters.</p>
+                        <p><strong>Ihre Rechte:</strong> Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung und Widerspruch (Art. 15–21 DSGVO) sowie auf Beschwerde bei einer Datenschutz-Aufsichtsbehörde, z. B. der Landesbeauftragten für Datenschutz und Informationsfreiheit Nordrhein-Westfalen.</p>
+                    </div>
+                </details>
+            </div>
+
+            <p class="leading-relaxed text-[11px] text-slate-500">
+                <strong>Rechtlicher Hinweis &amp; Lizenz:</strong> Dieser Rechner dient der kostenfreien Orientierung für Pflegebedürftige und Angehörige. Alle Angaben ohne Gewähr. 
+                Freie Software veröffentlicht unter der <strong>GNU General Public License v3 (GPLv3)</strong>. Urheberrecht © 2026 Guido Veithen. Weitergabe und Veränderung sind unter den Bedingungen der GPLv3 erlaubt; veränderte Fassungen müssen ebenfalls unter der GPLv3 und mit Quellcode weitergegeben werden. Beträge: Stand November 2026, gültig seit 01.01.2025.
+            </p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIK & BERECHNUNGEN -->
+    <script>
+        // PFLEGESÄTZE DATENBANK (SGB XI)
+        // Stand: gültig seit 01.01.2025, unverändert 2026 (geprüft November 2026)
+        let pflegeSaetze = {
+            1: { geld: 0,   sach: 0,    entlastung: 131, heim: 131,  hilfsmittel: 42, tages: 0,    jahresbetrag: 0 },
+            2: { geld: 347, sach: 796,  entlastung: 131, heim: 805,  hilfsmittel: 42, tages: 721,  jahresbetrag: 3539 },
+            3: { geld: 599, sach: 1497, entlastung: 131, heim: 1319, hilfsmittel: 42, tages: 1357, jahresbetrag: 3539 },
+            4: { geld: 800, sach: 1859, entlastung: 131, heim: 1855, hilfsmittel: 42, tages: 1685, jahresbetrag: 3539 },
+            5: { geld: 990, sach: 2299, entlastung: 131, heim: 2096, hilfsmittel: 42, tages: 2085, jahresbetrag: 3539 }
+        };
+        const WOHNUMFELD = 4180;
+
+        let activePflegegrad = 2;
+
+        // SEITENSTART
+        document.addEventListener('DOMContentLoaded', function() {
+            selectPflegegrad(2);
+            updateKombiCalc();
+            updateHeimCalc();
+
+            // Input-Listener für Brief-Generator
+            const fields = ['applicantName', 'applicantStreet', 'applicantCity', 'applicantDob', 'insuranceNumber', 'insuranceName', 'antragType'];
+            fields.forEach(id => {
+                const input = document.getElementById(id);
+                if (input) {
+                    input.addEventListener('input', updateLetterPreview);
+                    input.addEventListener('change', updateLetterPreview);
+                }
+            });
+
+            updateLetterPreview();
+            renderChips();
+        });
+
+        // BARRIEREFREIHEIT / SENIOR MODE TOGGLE
+        function toggleSeniorMode() {
+            document.documentElement.classList.toggle('text-lg');
+            const isBig = document.documentElement.classList.contains('text-lg');
+            showNotice(isBig ? 'Schriftgröße vergrößert' : 'Standard-Schriftgröße aktiv');
+        }
+
+        // DARK MODE TOGGLE
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+        }
+
+        // PFLEGEGRAD AUSWAHL
+        function selectPflegegrad(pg) {
+            activePflegegrad = pg;
+
+            // Buttons Highlighten
+            for (let i = 1; i <= 5; i++) {
+                const btn = document.getElementById(`pgBtn${i}`);
+                if (!btn) continue;
+                if (i === pg) {
+                    btn.className = "pg-btn p-4 rounded-2xl border-2 border-brand-600 bg-brand-50 dark:bg-brand-700/20 text-center transition cursor-pointer";
+                } else {
+                    btn.className = "pg-btn p-4 rounded-2xl border-2 border-slate-200 dark:border-slate-700 hover:border-brand-500 text-center transition cursor-pointer";
+                }
+            }
+
+            renderBenefitCards();
+            updateKombiCalc();
+            updateHeimCalc();
+        }
+
+        // LEISTUNGSKARTEN RENDERN
+        function renderBenefitCards() {
+            const data = pflegeSaetze[activePflegegrad];
+            const area = document.getElementById('benefitCardsArea');
+            if (!area) return;
+
+            area.innerHTML = `
+                <div class="bg-slate-50 dark:bg-slate-700/40 p-4 rounded-2xl border border-slate-200 dark:border-slate-600 flex flex-col justify-between">
+                    <div>
+                        <div class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">Pflegegeld</div>
+                        <div class="text-2xl font-black text-brand-600 dark:text-brand-300 mt-1">${data.geld > 0 ? fmt(data.geld) + ' €' : 'Kein Anspruch'}</div>
+                        <p class="text-[11px] text-slate-500 mt-2">Monatliche Auszahlung bei Pflege durch Angehörige (§ 37 SGB XI).</p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 dark:bg-slate-700/40 p-4 rounded-2xl border border-slate-200 dark:border-slate-600 flex flex-col justify-between">
+                    <div>
+                        <div class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">Pflegesachleistung</div>
+                        <div class="text-2xl font-black text-brand-600 dark:text-brand-300 mt-1">${data.sach > 0 ? fmt(data.sach) + ' €' : 'Kein Anspruch'}</div>
+                        <p class="text-[11px] text-slate-500 mt-2">Max. Budget für ambulante Pflegedienste (§ 36 SGB XI).</p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 dark:bg-slate-700/40 p-4 rounded-2xl border border-slate-200 dark:border-slate-600 flex flex-col justify-between">
+                    <div>
+                        <div class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">Entlastungsbetrag</div>
+                        <div class="text-2xl font-black text-teal-600 dark:text-teal-300 mt-1">${data.entlastung} €</div>
+                        <p class="text-[11px] text-slate-500 mt-2">Monatliches Zweckbudget für Haushaltshilfe & Betreuung (§ 45b SGB XI).</p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 dark:bg-slate-700/40 p-4 rounded-2xl border border-slate-200 dark:border-slate-600 flex flex-col justify-between">
+                    <div>
+                        <div class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">Pflegehilfsmittel</div>
+                        <div class="text-2xl font-black text-purple-600 dark:text-purple-300 mt-1">${data.hilfsmittel} €</div>
+                        <p class="text-[11px] text-slate-500 mt-2">Monatspauschale für Einmalhandschuhe, Desinfektion etc. (§ 40 SGB XI).</p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 dark:bg-slate-700/40 p-4 rounded-2xl border border-slate-200 dark:border-slate-600">
+                    <div class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">Tages-/Nachtpflege</div>
+                    <div class="text-2xl font-black text-brand-600 dark:text-brand-300 mt-1">${data.tages > 0 ? fmt(data.tages) + ' €' : 'Kein Anspruch'}</div>
+                    <p class="text-[11px] text-slate-500 mt-2">Monatlich, zusätzlich zu Pflegegeld oder Pflegedienst (§ 41 SGB XI).</p>
+                </div>
+
+                <div class="bg-slate-50 dark:bg-slate-700/40 p-4 rounded-2xl border border-slate-200 dark:border-slate-600">
+                    <div class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">Verhinderungs- &amp; Kurzzeitpflege</div>
+                    <div class="text-2xl font-black text-brand-600 dark:text-brand-300 mt-1">${data.jahresbetrag > 0 ? fmt(data.jahresbetrag) + ' € / Jahr' : 'Kein Anspruch'}</div>
+                    <p class="text-[11px] text-slate-500 mt-2">Gemeinsamer Jahresbetrag, flexibel für beide Leistungen (§ 42a SGB XI).</p>
+                </div>
+
+                <div class="bg-slate-50 dark:bg-slate-700/40 p-4 rounded-2xl border border-slate-200 dark:border-slate-600">
+                    <div class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">Wohnumfeldverbesserung</div>
+                    <div class="text-2xl font-black text-purple-600 dark:text-purple-300 mt-1">bis ${fmt(WOHNUMFELD)} €</div>
+                    <p class="text-[11px] text-slate-500 mt-2">Je Maßnahme, z. B. Badumbau, Türverbreiterung (§ 40 Abs. 4 SGB XI).</p>
+                </div>
+
+                <div class="bg-slate-50 dark:bg-slate-700/40 p-4 rounded-2xl border border-slate-200 dark:border-slate-600">
+                    <div class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">Pflegeheim (Kassenanteil)</div>
+                    <div class="text-2xl font-black text-brand-600 dark:text-brand-300 mt-1">${fmt(data.heim)} €</div>
+                    <p class="text-[11px] text-slate-500 mt-2">${activePflegegrad === 1 ? 'Bei Pflegegrad 1 nur als Zuschuss.' : 'Monatlich bei vollstationärer Pflege (§ 43 SGB XI).'}</p>
+                </div>
+            `;
+        }
+
+        // KOMBINATIONSLEISTUNGS-RECHNER
+        function updateKombiCalc() {
+            const range = document.getElementById('sachleistungUsageRange');
+            if (!range) return;
+            const percent = parseInt(range.value);
+
+            const data = pflegeSaetze[activePflegegrad];
+            document.getElementById('sachleistungPercentLabel').innerText = percent + '%';
+            document.getElementById('maxSachVal').innerText = fmt(data.sach) + ' €';
+            document.getElementById('maxGeldVal').innerText = fmt(data.geld) + ' €';
+
+            const usedSach = (data.sach * (percent / 100)).toFixed(2);
+            const remainingGeldPercent = (100 - percent) / 100;
+            const remainingGeld = (data.geld * remainingGeldPercent).toFixed(2);
+
+            document.getElementById('usedSachEuro').innerText = fmt2(parseFloat(usedSach)) + ' €';
+            document.getElementById('kombiResultVal').innerText = activePflegegrad === 1 ? 'Erst ab Pflegegrad 2' : fmt2(parseFloat(remainingGeld)) + ' € / Monat';
+        }
+
+        // PFLEGEHEIM & EIGENANTEILS-RECHNER
+        function updateHeimCalc() {
+            const gesamtkosten = parseFloat(document.getElementById('heimGesamtkosten')?.value) || 0;
+            const eee = parseFloat(document.getElementById('heimEEEKosten')?.value) || 0;
+            const dauer = parseInt(document.getElementById('heimDauerSelect')?.value) || 1;
+
+            const kassenBeitrag = pflegeSaetze[activePflegegrad].heim;
+
+            // Zuschuss-Sätze nach § 43c SGB XI
+            let zuschussProzent = 0.15;
+            if (dauer === 2) zuschussProzent = 0.30;
+            if (dauer === 3) zuschussProzent = 0.50;
+            if (dauer === 4) zuschussProzent = 0.75;
+
+            if (activePflegegrad === 1) zuschussProzent = 0;
+            const zuschussBetrag = eee * zuschussProzent;
+            const eigenanteil = gesamtkosten - kassenBeitrag - zuschussBetrag;
+
+            document.getElementById('heimKasseVal').innerText = fmt2(kassenBeitrag) + ' €';
+            document.getElementById('heimZuschlagVal').innerText = fmt2(zuschussBetrag) + ' € (' + (zuschussProzent * 100) + '%)';
+            document.getElementById('heimEigenanteilResult').innerText = fmt2(Math.max(0, eigenanteil)) + ' € / Monat';
+        }
+
+        // PFLEGESTÜTZPUNKT / BERATUNGSSTELLEN-SUCHE
+
+        function supportCard(title, text, linkText, url, tag) {
+            const badge = tag ? `<span class="inline-block mb-2 text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded-full ${tag === 'Kostenlos' ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'}">${tag}</span>` : '';
+            const link = url ? `<a href="${url}" target="_blank" rel="noopener noreferrer" class="inline-block mt-3 text-[11px] font-bold text-indigo-700 dark:text-indigo-300 underline">${linkText}</a>` : '';
+            return `<div class="bg-indigo-50 dark:bg-slate-700/60 p-4 rounded-2xl border border-indigo-200 dark:border-slate-600">${badge}
+                <div class="font-bold text-xs text-indigo-900 dark:text-indigo-200">${title}</div>
+                <p class="text-[11px] text-slate-600 dark:text-slate-300 mt-1">${text}</p>${link}</div>`;
+        }
+
+        function isKoelnPlz(plz) {
+            const n = parseInt(plz, 10);
+            return /^\d{5}$/.test(plz) && ((n >= 50667 && n <= 50999) || (n >= 51061 && n <= 51149));
+        }
+
+        function searchSupportCenters() {
+            const plz = (document.getElementById('locationSearchInput')?.value || '').trim();
+            const resultsArea = document.getElementById('supportResultsArea');
+            if (!resultsArea) return;
+            if (!/^\d{5}$/.test(plz)) {
+                resultsArea.innerHTML = `<div class="col-span-full p-4 bg-amber-50 dark:bg-slate-700/50 rounded-2xl text-center text-xs text-amber-800 dark:text-amber-300 font-bold">Bitte eine fünfstellige Postleitzahl eingeben.</div>`;
+                return;
+            }
+            const cards = [];
+            if (isKoelnPlz(plz)) {
+                cards.push(supportCard('Senior*innenberatung der Stadt Köln',
+                    'Unabhängige, vertrauliche Beratung in jedem Stadtbezirk, z. B. zu Pflege, Wohnen im Alter und häuslicher Unterstützung. Im Auftrag der Stadt, durchgeführt von Wohlfahrtsverbänden.',
+                    'Beratungsstelle im eigenen Stadtbezirk finden', 'https://www.stadt-koeln.de/leben-in-koeln/soziales/senioren/seniorenberatung-hilfe-den-stadtbezirken', 'Kostenlos'));
+                cards.push(supportCard('SeniorenNetzwerke Köln',
+                    'Treffpunkte im Veedel: Gesprächskreise, Ausflüge, Computerclub, Bewegung. Gegen Einsamkeit und für Kontakte in der Nachbarschaft. Von der Stadt Köln finanziert.',
+                    'Mehr zu den SeniorenNetzwerken', 'https://www.stadt-koeln.de/politik-und-verwaltung/presseservice/seniorennetzwerke-koeln', 'Kostenlos'));
+            }
+            cards.push(supportCard('Pflegestützpunkte und Pflegeberatung',
+                'Bundesweite Suche nach Pflegestützpunkten und nicht-kommerzieller Pflegeberatung. Dort Ihre Postleitzahl ' + escapeHtml(plz) + ' eingeben.',
+                'ZQP-Beratungsdatenbank öffnen', 'https://www.zqp.de/beratung-pflege/', 'Kostenlos'));
+            cards.push(supportCard('Pflegeberatung Ihrer Pflegekasse',
+                'Anspruch auf kostenlose Pflegeberatung (§ 7a SGB XI), auf Wunsch auch zu Hause. Privat Versicherte: compass, 0800 101 88 00 (gebührenfrei).',
+                '', '', 'Kostenlos'));
+            const nrwCard = supportCard('Alltagshilfen über den Entlastungsbetrag (NRW)',
+                'Hilfe im Haushalt, beim Einkaufen oder Betreuung zu Hause. Ab Pflegegrad 1 zahlt die Pflegekasse dafür bis zu 131 € im Monat, aber in NRW nur bei vom Land anerkannten Anbietern. Hier finden Sie alle anerkannten Anbieter in Ihrer Nähe.',
+                'Angebotsfinder NRW öffnen', 'https://angebotsfinder.nrw.de/uia/angebotsfinder', 'Über Pflegekasse');
+            if (isKoelnPlz(plz)) cards.splice(2, 0, nrwCard); else cards.push(nrwCard);
+            const note = isKoelnPlz(plz) ? '' : `<div class="col-span-full text-[11px] text-slate-500 dark:text-slate-400">Für Ihre Postleitzahl sind keine örtlichen Angebote hinterlegt. Die Seniorenberatung Ihrer Stadt oder Ihres Kreises kennt die Hilfen vor Ort. Der Angebotsfinder für Alltagshilfen gilt nur in Nordrhein-Westfalen.</div>`;
+            resultsArea.innerHTML = cards.join('') + note;
+        }
+
+        // TAGEBUCH MODAL CONTROL
+        function toggleDiaryGuide() {
+            const modal = document.getElementById('diaryModal');
+            if (modal) modal.classList.toggle('hidden');
+        }
+
+        function selectWiderspruch() {
+            const section = document.getElementById('letterGeneratorSection');
+            const select = document.getElementById('antragType');
+            if (select) select.value = 'widerspruch';
+            updateLetterPreview();
+            if (section) section.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // LIVE BRIEF-VORSCHAU DYNAMISCH GENERIEREN
+        function updateLetterPreview() {
+            const name = document.getElementById('applicantName')?.value.trim() || 'Maria Musterfrau';
+            const street = document.getElementById('applicantStreet')?.value.trim() || 'Musterstraße 123';
+            const city = document.getElementById('applicantCity')?.value.trim() || '50667 Köln';
+            const dob = document.getElementById('applicantDob')?.value.trim() || '15.04.1948';
+            const insuranceNr = document.getElementById('insuranceNumber')?.value.trim() || 'A123456789';
+            const insuranceName = document.getElementById('insuranceName')?.value.trim() || 'Muster-Pflegekasse';
+            const antrag = document.getElementById('antragType')?.value || 'erstantrag';
+
+            const senderEl = document.getElementById('letterSender');
+            const dateEl = document.getElementById('letterDate');
+            const recipientEl = document.getElementById('letterRecipient');
+            const subjectEl = document.getElementById('letterSubject');
+            const bodyEl = document.getElementById('letterBody');
+            const signatureEl = document.getElementById('letterSignature');
+
+            if (!senderEl || !recipientEl || !subjectEl || !bodyEl) return;
+
+            senderEl.innerHTML = `<strong>${name}</strong><br>${street}<br>${city}<br>Geburtsdatum: ${dob}<br>Versicherungsnummer: ${insuranceNr}`;
+            
+            if (dateEl) {
+                const today = new Date();
+                dateEl.innerText = 'Datum: ' + today.toLocaleDateString('de-DE');
+            }
+
+            recipientEl.innerHTML = `<strong>An die Pflegekasse der ${insuranceName}</strong><br>Leistungsabteilung / Pflegekasse<br>${city}`;
+
+            if (signatureEl) {
+                signatureEl.innerText = name;
+            }
+
+            if (antrag === 'erstantrag') {
+                subjectEl.innerText = 'Antrag auf Feststellung eines Pflegegrades und Leistungen der Pflegeversicherung (§§ 14, 33 SGB XI)';
+                bodyEl.innerHTML = `
+                    <p>Sehr geehrte Damen und Herren,</p>
+                    <p>hiermit beantrage ich Leistungen der Pflegeversicherung gemäß SGB XI sowie die Feststellung eines Pflegegrades für die oben genannte Person.</p>
+                    <p>Aufgrund von gesundheitlichen Einschränkungen besteht ein dauerhafter Hilfebedarf im Alltag. Ich bitte Sie daher um die kurzfristige Einleitung einer Begutachtung durch den Medizinischen Dienst (MD) bzw. Medicproof zur Feststellung der Pflegebedürftigkeit.</p>
+                    <p>Bitte senden Sie mir die entsprechenden Antragsformulare sowie Bestätigungen an die oben genannte Adresse zu.</p>
+                `;
+            } else if (antrag === 'widerspruch') {
+                subjectEl.innerText = 'WIDERSPRUCH gegen Ihren Bescheid über die Pflegegrad-Einstufung';
+                bodyEl.innerHTML = `
+                    <p>Sehr geehrte Damen und Herren,</p>
+                    <p>hiermit lege ich fristgerecht <strong>WIDERSPRUCH</strong> gegen Ihren Bescheid über die Einstufung des Pflegegrades ein.</p>
+                    <p>Die im Gutachten des Medizinischen Dienstes (MD) getroffenen Feststellungen spiegeln den tatsächlichen alltäglichen Hilfebedarf und die physischen/kognitiven Einschränkungen nicht vollumfänglich wider. Die vergebenen Punkte sind in mehreren Modulen zu niedrig angesetzt.</p>
+                    <p>Zur Fristwahrung erfolgt dieser Widerspruch zunächst formlos. Ich bitte Sie, mir das <strong>vollständige MD-Gutachten</strong> in Kopie zuzusenden. Nach Erhalt und Einsichtnahme werde ich Ihnen eine detaillierte Begründung nachreichen.</p>
+                    <p>Bitte bestätigen Sie mir den Eingang dieses Widerspruchs schriftlich.</p>
+                `;
+            } else if (antrag === 'hoeherstufung') {
+                subjectEl.innerText = 'Antrag auf Höherstufung des bestehenden Pflegegrades (§ 18 SGB XI)';
+                bodyEl.innerHTML = `
+                    <p>Sehr geehrte Damen und Herren,</p>
+                    <p>hiermit beantrage ich die Höherstufung des derzeit bestehenden Pflegegrades für die oben genannte Person.</p>
+                    <p>Seit der letzten Begutachtung hat sich der Gesundheitszustand und damit der tägliche Pflege- und Betreuungsaufwand deutlich verschlechtert. Ich bitte Sie daher um eine erneute Begutachtung zur Anpassung des Pflegegrades an den aktuellen Hilfebedarf.</p>
+                `;
+            } else if (antrag === 'entlastung') {
+                subjectEl.innerText = 'Antrag auf Inanspruchnahme des Entlastungsbetrags (§ 45b SGB XI)';
+                bodyEl.innerHTML = `
+                    <p>Sehr geehrte Damen und Herren,</p>
+                    <p>hiermit beantrage ich die Erstattung/Abrechnung des gesetzlichen Entlastungsbetrags in Höhe von monatlich 131 € gemäß § 45b SGB XI.</p>
+                    <p>Bitte teilen Sie mir mit, welche anerkannten Angebote zur Unterstützung im Alltag in meiner Region direkt über diesen Betrag abgerechnet werden können.</p>
+                `;
+            } else if (antrag === 'hilfsmittel') {
+                subjectEl.innerText = 'Antrag auf kostenfreie Pflegehilfsmittel zum Verbrauch (§ 40 SGB XI)';
+                bodyEl.innerHTML = `
+                    <p>Sehr geehrte Damen und Herren,</p>
+                    <p>hiermit beantrage ich die Übernahme der Kosten für zum Verbrauch bestimmte Pflegehilfsmittel im Wert von bis zu 42 € monatlich gemäß § 40 Abs. 2 SGB XI (z.B. Einmalhandschuhe, Desinfektionsmittel, Schutzauflagen).</p>
+                `;
+            } else if (antrag === 'wohnumfeld') {
+                subjectEl.innerText = 'Antrag auf finanziellen Zuschuss für Maßnahmen zur Wohnumfeldverbesserung (§ 40 Abs. 4 SGB XI)';
+                bodyEl.innerHTML = `
+                    <p>Sehr geehrte Damen und Herren,</p>
+                    <p>hiermit beantrage ich einen Zuschuss für Maßnahmen zur Verbesserung des individuellen Wohnumfeldes in Höhe von bis zu 4.180 € gemäß § 40 Abs. 4 SGB XI.</p>
+                    <p>Die geplante Baumaßnahme (z. B. barrierefreier Umbau des Badezimmers / Schwellenabbau) ist erforderlich, um die häusliche Pflege zu ermöglichen bzw. erheblich zu erleichtern.</p>
+                `;
+            } else if (antrag === 'kombination') {
+                subjectEl.innerText = 'Mitteilung über die Inanspruchnahme der Kombinationsleistung (§ 38 SGB XI)';
+                bodyEl.innerHTML = `
+                    <p>Sehr geehrte Damen und Herren,</p>
+                    <p>hiermit teile ich Ihnen mit, dass für die häusliche Pflege die Kombinationsleistung gemäß § 38 SGB XI in Anspruch genommen wird.</p>
+                    <p>Der nicht durch den Pflegedienst/Sachleistungen verbrauchte prozentuale Anteil soll als anteiliges Pflegegeld auf das bekannte Konto ausgezahlt werden.</p>
+                `;
+            }
+        }
+
+                // ZAHLENFORMAT
+        function fmt(n) { return Number(n).toLocaleString('de-DE'); }
+        function fmt2(n) { return Number(n).toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+        function escapeHtml(t) { return String(t).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+        function normText(t) {
+            return String(t).toLowerCase().replace(/ä/g,'ae').replace(/ö/g,'oe').replace(/ü/g,'ue').replace(/ß/g,'ss').replace(/[^a-z0-9 ]/g,' ');
+        }
+
+        // FRAGEN-ASSISTENT: GEPRÜFTE ANTWORTEN (Stand November 2026)
+        const BN = 'https://www.betanet.de/';
+        const FAQ = [
+            { t: 'Pflegegrad beantragen', k: ['pflegegrad beantragen','erstantrag','antrag pflegegrad','pflegegrad bekommen','pflegebeduerftig','pflegestufe','einstufung beantragen','pflegegrad erhalten'],
+              a: 'Ein formloser Antrag bei der Pflegekasse reicht (die Pflegekasse sitzt bei Ihrer Krankenkasse), auch telefonisch. Leistungen gibt es ab dem Monat der Antragstellung, deshalb früh beantragen. Danach begutachtet der Medizinische Dienst (MD) den Hilfebedarf. Die Kasse muss in der Regel innerhalb von 25 Arbeitstagen entscheiden.',
+              antrag: 'erstantrag', links: [['Pflegeantrag & Begutachtung (betanet)', BN+'pflegeantrag-und-pflegebegutachtung.html']] },
+            { t: 'Widerspruch gegen den Bescheid', k: ['widerspruch','abgelehnt','ablehnung','zu niedrig','bescheid falsch','pflegegrad abgelehnt','nicht einverstanden','einspruch','frist'],
+              a: 'Sie haben 1 Monat ab Zugang des Bescheids Zeit. Legen Sie zuerst formlos Widerspruch ein (Frist wahren) und fordern Sie das MD-Gutachten an. Die Begründung können Sie nachreichen. Widerspruch und Klage sind kostenlos.',
+              antrag: 'widerspruch', links: [['Widerspruch im Sozialrecht (betanet)', BN+'widerspruch-im-sozialrecht.html']] },
+            { t: 'Höheren Pflegegrad beantragen', k: ['hoeherstufung','hoeher stufen','hoeherer pflegegrad','verschlechtert','schlechter geworden','neu einstufen'],
+              a: 'Hat sich der Zustand verschlechtert, beantragen Sie formlos eine Höherstufung. Es folgt eine neue Begutachtung. Ein Pflegetagebuch über einige Wochen hilft, den gestiegenen Bedarf zu belegen.',
+              antrag: 'hoeherstufung', links: [['Pflegeantrag & Höherstufung (betanet)', BN+'pflegeantrag-und-pflegebegutachtung.html']] },
+            { t: 'Pflegegeld', k: ['pflegegeld','geld fuer angehoerige','angehoerige pflegen','pflege durch familie','auszahlung'],
+              a: 'Pflegegeld gibt es ab Pflegegrad 2, wenn Angehörige oder Bekannte pflegen: 347 € (PG 2), 599 € (PG 3), 800 € (PG 4), 990 € (PG 5) monatlich. Pflicht sind Beratungsbesuche zu Hause: bei PG 2 und 3 halbjährlich, bei PG 4 und 5 vierteljährlich.',
+              links: [['Pflegegeld (betanet)', BN+'pflegegeld-pflegeversicherung.html']] },
+            { t: 'Pflegedienst (Pflegesachleistung)', k: ['pflegedienst','sachleistung','ambulant','ambulanter dienst','pflegesachleistung'],
+              a: 'Für einen zugelassenen ambulanten Pflegedienst zahlt die Kasse bis zu 796 € (PG 2), 1.497 € (PG 3), 1.859 € (PG 4) bzw. 2.299 € (PG 5) im Monat. Der Dienst rechnet direkt mit der Kasse ab.',
+              links: [['Pflegesachleistung (betanet)', BN+'pflegesachleistung.html']] },
+            { t: 'Pflegegeld und Pflegedienst kombinieren', k: ['kombination','kombinieren','kombi','beides','anteilig'],
+              a: 'Nutzen Sie den Pflegedienst nur teilweise, wird der Rest anteilig als Pflegegeld ausgezahlt. Beispiel: 40 % Sachleistung genutzt, dann 60 % Pflegegeld. Probieren Sie es mit dem Kombinations-Rechner auf dieser Seite aus.',
+              antrag: 'kombination', scroll: 'kombiSection', links: [['Kombinationsleistung (betanet)', BN+'kombinationsleistung.html']] },
+            { t: 'Entlastungsbetrag (131 €)', k: ['entlastungsbetrag','entlastung','131','haushaltshilfe','putzhilfe','alltagshilfe','alltagshelfer','einkaufshilfe','betreuung','unterstuetzung im alltag','veedelshelfer'],
+              a: 'Ab Pflegegrad 1 stehen bei häuslicher Pflege 131 € im Monat zu, zweckgebunden: z. B. für anerkannte Alltagshilfen, Betreuung oder Tagespflege. Die Kasse erstattet gegen Rechnung. Nicht genutzte Beträge können bis zum 30. Juni des Folgejahres verbraucht werden.',
+              antrag: 'entlastung', links: [['Entlastungsbetrag (betanet)', BN+'entlastungsbetrag.html'], ['Anerkannte Alltagshilfen in NRW (Angebotsfinder)', 'https://angebotsfinder.nrw.de/uia/angebotsfinder']] },
+            { t: 'Pflegehilfsmittel beantragen', k: ['pflegehilfsmittel','hilfsmittel','handschuhe','desinfektion','pflegebox','bettschutz','einlagen','verbrauch','42'],
+              a: 'Für Verbrauchsmittel (Einmalhandschuhe, Desinfektion, Bettschutzeinlagen) zahlt die Kasse bis zu 42 € im Monat, schon ab Pflegegrad 1 bei häuslicher Pflege. Antrag bei der Pflegekasse; viele Anbieter und Apotheken rechnen nach Genehmigung direkt ab. Technische Hilfsmittel wie ein Pflegebett gibt es meist leihweise, mit 10 % Zuzahlung (höchstens 25 € je Hilfsmittel).',
+              antrag: 'hilfsmittel', links: [['Pflegehilfsmittel (betanet)', BN+'pflegehilfsmittel.html']] },
+            { t: 'Hausnotruf', k: ['hausnotruf','notruf','notrufknopf','sturz'],
+              a: 'Ein Hausnotruf kann als technisches Pflegehilfsmittel von der Pflegekasse bezuschusst werden. Stellen Sie vor Vertragsabschluss einen Antrag bei der Pflegekasse.',
+              links: [['Pflegehilfsmittel (betanet)', BN+'pflegehilfsmittel.html']] },
+            { t: 'Umbau / Wohnumfeldverbesserung', k: ['umbau','badumbau','dusche','treppenlift','wohnumfeld','barrierefrei','tuer','rampe','wohnung'],
+              a: 'Die Pflegekasse zahlt bis zu 4.180 € je Maßnahme, schon ab Pflegegrad 1 (bei mehreren Pflegebedürftigen in einer Wohnung bis 16.720 €). Stellen Sie den Antrag mit Kostenvoranschlag vor Beginn der Arbeiten.',
+              antrag: 'wohnumfeld', links: [['Wohnumfeldverbesserung (betanet)', BN+'wohnumfeldverbesserung.html']] },
+            { t: 'Verhinderungs- und Kurzzeitpflege', k: ['verhinderungspflege','kurzzeitpflege','urlaub','ersatzpflege','pflegeperson krank','auszeit','jahresbetrag','3539'],
+              a: 'Ab Pflegegrad 2 gibt es einen gemeinsamen Jahresbetrag von 3.539 €, frei aufteilbar für Verhinderungspflege (Ersatz, wenn die Pflegeperson Urlaub hat oder krank ist) und Kurzzeitpflege (vorübergehend im Heim, bis zu 8 Wochen im Jahr).',
+              links: [['Gemeinsamer Jahresbetrag (betanet)', BN+'gemeinsamer-jahresbetrag.html'], ['Kurzzeitpflege (betanet)', BN+'kurzzeitpflege.html']] },
+            { t: 'Tagespflege', k: ['tagespflege','nachtpflege','tagesbetreuung','teilstationaer'],
+              a: 'Ab Pflegegrad 2 gibt es für Tages- oder Nachtpflege zusätzlich monatlich 721 € (PG 2), 1.357 € (PG 3), 1.685 € (PG 4) bzw. 2.085 € (PG 5). Pflegegeld oder Pflegedienst werden dadurch nicht gekürzt. Fahrtkosten sind enthalten, Verpflegung zahlen Sie selbst.',
+              links: [['Leistungstabelle (betanet, PDF)', 'https://betanet.de/files/pdf/Pflegeleistungen--Tabelle.pdf']] },
+            { t: 'Pflegeheim: Was zahlt die Kasse?', k: ['pflegeheim','heim','stationaer','eigenanteil','heimkosten','seniorenheim','altenheim'],
+              a: 'Die Kasse zahlt monatlich 805 € (PG 2), 1.319 € (PG 3), 1.855 € (PG 4) bzw. 2.096 € (PG 5). Dazu kommt ein Zuschlag auf den Pflege-Eigenanteil: 15 % im 1. Jahr, 30 % im 2., 50 % im 3., 75 % ab dem 4. Jahr. Unterkunft, Verpflegung und Investitionskosten zahlen Sie selbst.',
+              scroll: 'heimSection', links: [['Leistungszuschlag Heim (betanet)', BN+'leistungszuschlag-vollstationaere-pflege.html']] },
+            { t: 'Heim nicht bezahlbar / Müssen die Kinder zahlen?', k: ['sozialamt','hilfe zur pflege','kinder zahlen','unterhalt','nicht bezahlbar','rente reicht nicht','100000','elternunterhalt','kinder','angehoerige zahlen'],
+              a: 'Reicht das eigene Einkommen und Vermögen nicht, hilft das Sozialamt („Hilfe zur Pflege“). Kinder werden erst ab einem Jahres-Bruttoeinkommen von über 100.000 € herangezogen, Schwiegerkinder nicht.',
+              links: [['Hilfe zur Pflege (betanet)', BN+'hilfe-zur-pflege.html']] },
+            { t: 'Begutachtung durch den MD vorbereiten', k: ['md','medizinischer dienst','gutachter','begutachtung','hausbesuch','tagebuch','pflegetagebuch','vorbereiten'],
+              a: 'Führen Sie vorher einige Wochen ein Pflegetagebuch. Eine Bezugsperson sollte beim Termin dabei sein. Nichts beschönigen: schildern Sie auch schlechte Tage. Arztberichte und Medikamentenplan bereitlegen. Die Checkliste mit den 6 Modulen finden Sie auf dieser Seite.',
+              diary: true, links: [['Pflegeantrag & Begutachtung (betanet)', BN+'pflegeantrag-und-pflegebegutachtung.html']] },
+            { t: 'Kostenlose Pflegeberatung finden', k: ['beratung','pflegestuetzpunkt','stuetzpunkt','beratungsstelle','ansprechpartner','hilfe vor ort','wo bekomme ich hilfe','in der naehe','koeln','seniorennetzwerk','seniorenberatung'],
+              a: 'Pflegeberatung ist kostenlos (§ 7a SGB XI), bei Ihrer Pflegekasse oder in einem Pflegestützpunkt. Beratungsstellen in Ihrer Nähe finden Sie in der Datenbank des ZQP. Privat Versicherte wenden sich an compass (0800 101 88 00). Geben Sie Ihre Postleitzahl im Bereich „Hilfe und Beratung in Ihrer Nähe“ ein; für Köln erscheinen die örtlichen Angebote direkt.',
+              scroll: 'supportSection', links: [['ZQP-Beratungsdatenbank', 'https://www.zqp.de/beratung-pflege/']] },
+            { t: 'Vorsorgevollmacht', k: ['vollmacht','vorsorgevollmacht','betreuung gericht','unterschreiben','bevollmaechtigt','patientenverfuegung'],
+              a: 'Ohne Vollmacht dürfen auch Ehepartner oder Kinder grundsätzlich keine Anträge stellen oder Verträge unterschreiben (Ausnahme: begrenztes Notvertretungsrecht für Ehepartner in Gesundheitsfragen). Das Bundesjustizministerium stellt eine kostenlose Vorlage bereit.',
+              links: [['Vorlage Vorsorgevollmacht (BMJ)', 'https://www.bmj.de/DE/service/formulare/form_vorsorgevollmacht.html']] },
+            { t: 'Was gibt es bei Pflegegrad 1?', k: ['pflegegrad 1','pg 1','pg1','grad 1','geringe beeintraechtigung'],
+              a: 'Bei Pflegegrad 1 gibt es kein Pflegegeld, aber: Entlastungsbetrag 131 €/Monat, Pflegehilfsmittel bis 42 €/Monat, bis 4.180 € für Wohnungsumbau, kostenlose Pflegeberatung und bei Heimpflege einen Zuschuss von 131 €/Monat.',
+              links: [['Pflegegrade (betanet)', BN+'pflegegrade.html']] },
+            { t: 'Steuer: Pflege-Pauschbetrag', k: ['steuer','pauschbetrag','steuererklaerung','finanzamt','absetzen'],
+              a: 'Wer unentgeltlich pflegt, kann einen Pflege-Pauschbetrag in der Steuererklärung ansetzen: 600 € (PG 2), 1.100 € (PG 3), 1.800 € (PG 4 und 5) pro Jahr. Voraussetzung ist die Pflege in der eigenen oder der Wohnung der gepflegten Person.',
+              links: [] },
+            { t: 'Rente für pflegende Angehörige', k: ['rente','rentenpunkte','rentenversicherung','rentenbeitraege','absicherung pflegeperson','30 stunden','stunden reduzieren','teilzeit'],
+              a: 'Ab Pflegegrad 2 zahlt die Pflegekasse kostenlos Rentenbeiträge für die Pflegeperson, wenn diese <strong>mindestens 10 Stunden pro Woche an mindestens 2 Tagen</strong> pflegt, nicht erwerbsmäßig, und daneben <strong>höchstens 30 Stunden pro Woche</strong> arbeitet. Achtung: Es zählt die im Arbeitsvertrag vereinbarte Arbeitszeit. Wer z. B. 32 Stunden im Vertrag hat, bekommt nichts. Wer reduziert, sollte das schriftlich im Vertrag festhalten. Die Pflegekasse schickt dazu einen Fragebogen; diesen schnell ausfüllen. Für Pflegezeiten ab 2027 sind im Rahmen der Reform Änderungen geplant.',
+              links: [['Sozialversicherung für Pflegepersonen (betanet)', BN+'pflegende-angehoerige-sozialversicherung.html'], ['Deutsche Rentenversicherung', 'https://www.deutsche-rentenversicherung.de']] },
+            { t: 'Arbeitszeit reduzieren: Pflegezeit & Familienpflegezeit', k: ['pflegezeit','familienpflegezeit','arbeit reduzieren','arbeitszeit','freistellung','job','arbeitgeber','beruf','kuendigungsschutz','darlehen'],
+              a: '<strong>Pflegezeit:</strong> bis zu 6 Monate ganz oder teilweise freistellen lassen (Betriebe mit mehr als 15 Beschäftigten, Ankündigung 10 Arbeitstage vorher). <strong>Familienpflegezeit:</strong> bis zu 24 Monate Arbeitszeit auf mindestens 15 Stunden pro Woche reduzieren (Betriebe mit mehr als 25 Beschäftigten, Ankündigung 8 Wochen vorher). Beides zusammen höchstens 24 Monate je angehöriger Person. Während dieser Zeit besteht Kündigungsschutz. Zum Ausgleich des Verdienstausfalls gibt es ein zinsloses Darlehen beim Bundesamt für Familie (BAFzA). Tipp: Wer dabei auf höchstens 30 Stunden reduziert, sichert sich zusätzlich die Rentenbeiträge der Pflegekasse.',
+              links: [['Wege zur Pflege (Bundesfamilienministerium)', 'https://www.wege-zur-pflege.de'], ['Sozialversicherung für Pflegepersonen (betanet)', BN+'pflegende-angehoerige-sozialversicherung.html']] },
+            { t: 'Akuter Pflegefall: 10 Tage frei', k: ['akut','ploetzlich','notfall','10 tage','pflegeunterstuetzungsgeld','arbeitsverhinderung','sofort frei'],
+              a: 'Tritt ein Pflegefall plötzlich ein, dürfen Beschäftigte bis zu 10 Arbeitstage pro Jahr der Arbeit fernbleiben, um die Pflege zu organisieren, unabhängig von der Betriebsgröße. Als Lohnersatz zahlt die Pflegekasse der pflegebedürftigen Person auf Antrag Pflegeunterstützungsgeld. Arbeitgeber sofort informieren, nicht krankmelden oder Urlaub nehmen.',
+              links: [['Wege zur Pflege (Bundesfamilienministerium)', 'https://www.wege-zur-pflege.de']] },
+            { t: 'Kostenloser Pflegekurs', k: ['pflegekurs','schulung','kurs','lernen pflegen'],
+              a: 'Pflegekassen bieten Angehörigen kostenlose Pflegekurse an, auf Wunsch auch als Schulung zu Hause. Fragen Sie direkt bei Ihrer Pflegekasse nach.',
+              links: [] },
+            { t: 'Pflegereform 2027', k: ['reform','2027','pflegereform','aenderung','neues gesetz','pflegeneuordnungsgesetz'],
+              a: 'Für 2027 berät der Bundestag ein neues Pflegegesetz; die Abstimmung ist für Dezember 2026 geplant. Bis zur Verabschiedung gelten die hier genannten Beträge. Diese Seite wird danach aktualisiert.',
+              links: [] }
+        ];
+
+        function scoreFaq(item, q) {
+            let score = 0;
+            const words = q.split(' ').filter(w => w.length > 2);
+            item.k.forEach(kw => {
+                const nkw = normText(kw);
+                if (q.includes(nkw)) score += 3 + nkw.split(' ').length;
+                else words.forEach(w => { if (nkw.split(' ').some(p => p.length > 3 && (p.startsWith(w) || w.startsWith(p)))) score += 1; });
+            });
+            if (normText(item.t).includes(q) && q.length > 3) score += 4;
+            return score;
+        }
+
+        function renderAnswer(item) {
+            const links = item.links.map(l => `<a href="${l[1]}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs font-bold text-emerald-700 dark:text-emerald-300 underline"><i class="fa-solid fa-arrow-up-right-from-square"></i> ${l[0]}</a>`).join('');
+            const idx = FAQ.indexOf(item);
+            const actions = [];
+            if (item.antrag) actions.push(`<button type="button" onclick="useAntrag(${idx})" class="bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold py-2 px-3 rounded-xl cursor-pointer"><i class="fa-solid fa-file-signature"></i> Passendes Schreiben erstellen</button>`);
+            if (item.scroll) actions.push(`<button type="button" onclick="document.getElementById('${item.scroll}').scrollIntoView({behavior:'smooth'})" class="bg-slate-200 dark:bg-slate-600 hover:bg-slate-300 text-slate-800 dark:text-white text-xs font-bold py-2 px-3 rounded-xl cursor-pointer">Zum Rechner auf dieser Seite</button>`);
+            if (item.diary) actions.push(`<button type="button" onclick="openDiary()" class="bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold py-2 px-3 rounded-xl cursor-pointer"><i class="fa-solid fa-list-check"></i> Checkliste öffnen</button>`);
+            return `<div class="bg-emerald-50 dark:bg-slate-700/50 border border-emerald-200 dark:border-slate-600 rounded-2xl p-4 space-y-2">
+                <h3 class="font-bold text-sm text-emerald-900 dark:text-emerald-200">${item.t}</h3>
+                <p class="text-sm text-slate-700 dark:text-slate-200 leading-relaxed">${item.a}</p>
+                ${links ? `<div class="flex flex-wrap gap-x-4 gap-y-1">${links}</div>` : ''}
+                ${actions.length ? `<div class="flex flex-wrap gap-2 pt-1">${actions.join('')}</div>` : ''}
+            </div>`;
+        }
+
+        function answerQuestion(forced) {
+            const area = document.getElementById('answerArea');
+            const input = document.getElementById('questionInput');
+            if (typeof forced === 'number') { area.innerHTML = renderAnswer(FAQ[forced]); return; }
+            const q = normText(input.value).replace(/\s+/g, ' ').trim();
+            if (!q) { area.innerHTML = `<p class="text-xs text-amber-700 dark:text-amber-300 font-bold">Bitte geben Sie eine Frage oder ein Stichwort ein.</p>`; return; }
+            const hits = FAQ.map(it => ({ it, sc: scoreFaq(it, q) })).filter(h => h.sc > 0).sort((a, b) => b.sc - a.sc).slice(0, 3);
+            if (!hits.length) {
+                area.innerHTML = `<div class="bg-amber-50 dark:bg-slate-700/50 border border-amber-200 dark:border-slate-600 rounded-2xl p-4 text-sm text-slate-700 dark:text-slate-200">
+                    Zu dieser Frage ist keine Antwort hinterlegt. Versuchen Sie ein anderes Stichwort (z. B. „Pflegegeld“, „Umbau“, „Widerspruch“) oder fragen Sie kostenlos bei Ihrer Pflegekasse bzw. einem Pflegestützpunkt nach.
+                    <div class="mt-2"><a href="https://www.zqp.de/beratung-pflege/" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-emerald-700 dark:text-emerald-300 underline">Beratungsstelle in der Nähe finden</a></div>
+                </div>`;
+                return;
+            }
+            area.innerHTML = hits.map(h => renderAnswer(h.it)).join('');
+        }
+
+        function useAntrag(idx) {
+            const select = document.getElementById('antragType');
+            if (select) select.value = FAQ[idx].antrag;
+            updateLetterPreview();
+            document.getElementById('letterGeneratorSection')?.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function openDiary() {
+            const modal = document.getElementById('diaryModal');
+            if (modal) { modal.classList.remove('hidden'); modal.scrollIntoView({ behavior: 'smooth' }); }
+        }
+
+        function renderChips() {
+            const chips = document.getElementById('questionChips');
+            if (!chips) return;
+            const popular = [0, 7, 6, 9, 1, 10, 19, 20];
+            chips.innerHTML = popular.map(i => `<button type="button" onclick="answerQuestion(${i})" class="text-xs font-semibold bg-slate-100 dark:bg-slate-700 hover:bg-emerald-100 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 py-1.5 px-3 rounded-full border border-slate-200 dark:border-slate-600 cursor-pointer">${FAQ[i].t}</button>`).join('');
+        }
+
+        // HILFSFUNKTION FÜR HINWEISMELDUNGEN (KEIN ALERT)
+        function showNotice(msg) {
+            const toast = document.createElement('div');
+            toast.className = 'fixed bottom-5 right-5 bg-slate-900 text-white text-xs font-bold py-3 px-5 rounded-2xl shadow-2xl z-50 flex items-center gap-2 border border-slate-700 animate-bounce';
+            toast.innerHTML = `<i class="fa-solid fa-info-circle text-brand-400"></i> ${msg}`;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+    </script>
+</body>
+</html>
