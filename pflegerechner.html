@@ -1022,5 +1022,22 @@
             setTimeout(() => toast.remove(), 3000);
         }
     </script>
+    <script>
+        // DATENSCHUTZ: Eingabefelder bei jedem Öffnen leeren und Browser-Speicherung unterdrücken
+        (function () {
+            const ids = ['applicantName', 'applicantStreet', 'applicantCity', 'applicantDob', 'insuranceName', 'insuranceNumber', 'questionInput', 'locationSearchInput'];
+            function clearFields() {
+                ids.forEach(function (id) {
+                    const el = document.getElementById(id);
+                    if (!el) return;
+                    el.value = '';
+                    el.setAttribute('autocomplete', 'off');
+                    el.setAttribute('spellcheck', 'false');
+                });
+                if (typeof updateLetterPreview === 'function') updateLetterPreview();
+            }
+            window.addEventListener('pageshow', clearFields);
+        })();
+    </script>
 </body>
 </html>
