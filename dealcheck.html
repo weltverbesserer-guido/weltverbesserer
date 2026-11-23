@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DealCheck 360° – Effektivpreis-Rechner</title>
+<meta name="description" content="Rechne den echten Preis aus: Kaufpreis plus Versand und Retoure, minus Gratis-Zugaben. Neu und gebraucht fair vergleichen.">
+<style>
+:root{--bg:#f1f5f9;--card:#fff;--text:#0f172a;--muted:#475569;--line:#e2e8f0;--blue:#1d4ed8;--blue-d:#1e40af;--green:#047857;--green-bg:#ecfdf5;--red:#be123c;--red-bg:#fff1f2;--amber-bg:#fffbeb;--amber:#92400e;--teal:#0f766e}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+a{color:var(--blue)}
+header{background:var(--card);border-bottom:1px solid var(--line)}
+.wrap{max-width:1000px;margin:0 auto;padding:0 16px}
+.head{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding:14px 0}
+h1{font-size:1.35rem;margin:0}
+h1 span{color:var(--blue)}
+.sub{margin:0;color:var(--muted);font-size:.85rem}
+main{padding:20px 16px 8px;display:grid;gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+h2{font-size:1.05rem;margin:0 0 4px}
+.hint{font-size:.85rem;color:var(--muted);margin:0 0 12px}
+.notice{background:var(--amber-bg);border:1px solid #fde68a;color:var(--amber);border-radius:12px;padding:12px 14px;font-size:.9rem}
+label{display:block;font-size:.8rem;font-weight:600;margin-bottom:4px}
+input[type=text],input[type=number],select{width:100%;padding:10px 12px;border:1px solid #cbd5e1;border-radius:10px;font:inherit;background:#f8fafc}
+input:focus,select:focus,button:focus-visible,a:focus-visible{outline:3px solid #93c5fd;outline-offset:1px}
+.grid{display:grid;gap:12px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(130px,1fr))}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+button,.btn{font:inherit;font-weight:600;font-size:.9rem;border:0;border-radius:10px;padding:10px 16px;cursor:pointer;background:var(--blue);color:#fff;text-decoration:none;display:inline-block}
+button:hover,.btn:hover{background:var(--blue-d)}
+button.ghost{background:#e2e8f0;color:var(--text)}
+button.ghost:hover{background:#cbd5e1}
+button.ghost[aria-pressed=true]{background:var(--text);color:#fff}
+button.small{padding:6px 10px;font-size:.8rem}
+button.danger{background:#fff;color:var(--red);border:1px solid #fecdd3}
+button.danger:hover{background:var(--red-bg)}
+.pay{background:#003087}
+.pay:hover{background:#00256b}
+.portals a{font-size:.8rem;font-weight:600;padding:6px 10px;border-radius:8px;background:#eff6ff;border:1px solid #bfdbfe;color:#1e3a8a;text-decoration:none}
+.portals a:hover{background:#dbeafe}
+.check{display:flex;align-items:center;gap:8px;font-size:.9rem;font-weight:600}
+.check input{width:18px;height:18px}
+.kpi{border:1px solid var(--line);border-radius:12px;padding:12px;background:#f8fafc}
+.kpi small{display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);font-weight:700}
+.kpi strong{font-size:1.5rem;display:block}
+.kpi.best{background:var(--green-bg);border-color:#a7f3d0}
+.kpi.best strong{color:var(--green)}
+.verdict{border-radius:12px;padding:12px 14px;font-size:.95rem;margin-bottom:12px}
+.v-good{background:var(--green-bg);border:1px solid #a7f3d0;color:#065f46}
+.v-mid{background:#eff6ff;border:1px solid #bfdbfe;color:#1e3a8a}
+.v-bad{background:var(--red-bg);border:1px solid #fecdd3;color:#9f1239}
+.v-none{background:#f8fafc;border:1px solid var(--line);color:var(--muted)}
+.offer{border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;margin-top:10px}
+.offer.win{border-color:#34d399;background:#f0fdf9}
+.offer h3{margin:0;font-size:1rem}
+.tag{display:inline-block;font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:99px;margin-left:6px;vertical-align:middle}
+.t-new{background:#dbeafe;color:#1e3a8a}
+.t-used{background:#ccfbf1;color:#115e59}
+.t-win{background:#d1fae5;color:#065f46}
+.meta{font-size:.82rem;color:var(--muted);margin:2px 0 0}
+.eff{text-align:right}
+.eff small{display:block;font-size:.7rem;text-transform:uppercase;color:var(--muted);font-weight:700}
+.eff strong{font-size:1.5rem}
+.win .eff strong{color:var(--green)}
+.empty{color:var(--muted);font-size:.9rem;padding:12px 0}
+footer{max-width:1000px;margin:0 auto;padding:20px 16px 32px;font-size:.8rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
+.qrow{display:grid;grid-template-columns:minmax(110px,1.2fr) 1fr 1fr 1.2fr auto;gap:8px;align-items:center;margin-top:8px}
+.qrow input,.qrow select{padding:8px 10px}
+.qrow a.pl{font-weight:700;font-size:.85rem;padding:9px 10px;border-radius:8px;background:#eff6ff;border:1px solid #bfdbfe;color:#1e3a8a;text-decoration:none;text-align:center}
+.qrow a.pl:hover{background:#dbeafe}
+.qrow a.pl.off{opacity:.5;pointer-events:none}
+.t-ex{background:#fef3c7;color:#92400e}
+@media (max-width:640px){.qrow{grid-template-columns:1fr 1fr}.qrow a.pl{grid-column:1/-1}.qrow button{grid-column:1/-1}}
+.visually-hidden{position:absolute;left:-9999px}
+@media (max-width:520px){.eff{text-align:left}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap head">
+    <div>
+      <p class="sub" style="margin-bottom:2px"><a href="index.html">← Weltverbesserer</a></p>
+      <h1>DealCheck <span>360°</span></h1>
+      <p class="sub">Effektivpreis-Rechner: Preis + Versand + Retoure – Gratis-Zugaben</p>
+    </div>
+    <a class="btn pay" target="_blank" rel="noopener noreferrer"
+       href="https://www.paypal.me/BiboTheNerd">Dankeschön per PayPal</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <p class="notice" role="note"><strong>Hinweis:</strong> Dieses Tool zeigt keine Live-Preise. Du suchst über die Portal-Links selbst und trägst die gefundenen Angebote unten ein. Der Rechner zeigt dir dann den echten Gesamtpreis. Deine Eingaben bleiben nur in deinem Browser gespeichert.</p>
+
+  <section class="card" aria-labelledby="h-search">
+    <h2 id="h-search">1. Suchen und Preise erfassen</h2>
+    <p class="hint">Themenwelt wählen, Suchbegriff eingeben, Portal öffnen. Dann den gefundenen Preis in die Zeile eintragen und auf „Übernehmen“ klicken.</p>
+    <div class="grid g2">
+      <div>
+        <label for="domain">Themenwelt</label>
+        <select id="domain"></select>
+      </div>
+      <div>
+        <label for="query">Suchbegriff</label>
+        <input type="text" id="query" placeholder="z. B. Sony PlayStation 5" autocomplete="off">
+      </div>
+    </div>
+    <p class="notice" style="margin-top:12px"><strong>Werbehinweis:</strong> Der Link zu Amazon ist ein Affiliate-Link (Anzeige). Als Amazon-Partner verdiene ich an qualifizierten Verkäufen. Für dich entstehen keine Mehrkosten.</p>
+    <details style="margin:8px 0 4px;font-size:.88rem">
+      <summary style="cursor:pointer;font-weight:600">Was passiert, wenn ich auf den Amazon-Link klicke?</summary>
+      <p class="hint" style="margin-top:8px">Der Link führt zur Amazon-Suche und enthält meine Partner-Kennung. Amazon erkennt daran, dass du über diese Seite kommst, und speichert dafür auf amazon.de ein Cookie. Kaufst du innerhalb der von Amazon festgelegten Frist etwas, erhalte ich eine Provision, auch für andere Artikel im Warenkorb. Du zahlst nicht mehr. Ab dem Klick gelten die Datenschutzbestimmungen von Amazon, ich sehe weder deine Käufe noch deine Daten. Wenn du das nicht möchtest, rufe amazon.de einfach direkt auf. Alle anderen Portale hier sind ohne Provision verlinkt.</p>
+    </details>
+    <div id="portals" style="margin-top:4px"></div>
+  </section>
+
+  <section class="card" aria-labelledby="h-add">
+    <h2 id="h-add">2. Anderes Angebot eintragen</h2>
+    <p class="hint">Für Shops, die oben nicht aufgeführt sind, oder wenn du Zugaben oder Rücksendekosten erfassen willst. Felder mit * sind Pflicht.</p>
+    <form id="addForm" class="grid" novalidate>
+      <div class="grid g2">
+        <div>
+          <label for="fDealer">Shop / Portal / Verkäufer *</label>
+          <input type="text" id="fDealer" required maxlength="80" placeholder="z. B. Amazon oder Kleinanzeigen">
+        </div>
+        <div>
+          <label for="fCond">Zustand</label>
+          <select id="fCond"><option value="new">Neu (Händler)</option><option value="used">Gebraucht / privat</option></select>
+        </div>
+      </div>
+      <div class="grid g4">
+        <div><label for="fPrice">Kaufpreis (€) *</label><input type="number" id="fPrice" min="0" step="0.01" inputmode="decimal" required></div>
+        <div><label for="fExtra">Versand / Gebühren (€)</label><input type="number" id="fExtra" min="0" step="0.01" inputmode="decimal" value="0"></div>
+        <div><label for="fReturn">Rücksendekosten (€)</label><input type="number" id="fReturn" min="0" step="0.01" inputmode="decimal" value="0"></div>
+      </div>
+      <div class="grid g2">
+        <div><label for="fGText">Gratis-Zugabe (optional)</label><input type="text" id="fGText" maxlength="80" placeholder="z. B. 2. Controller"></div>
+        <div><label for="fGVal">Wert der Zugabe (€)</label><input type="number" id="fGVal" min="0" step="0.01" inputmode="decimal" value="0"></div>
+      </div>
+      <p id="formMsg" role="alert" class="hint" style="color:var(--red);margin:0"></p>
+      <div><button type="submit">Angebot hinzufügen</button></div>
+    </form>
+  </section>
+
+  <section class="card" aria-labelledby="h-res">
+    <h2 id="h-res">3. Vergleich</h2>
+    <p class="hint">Optional: Gib einen Referenzpreis ein (z. B. durchschnittlicher Preis laut Preisvergleich), dann bewertet das Tool das beste Angebot dagegen.</p>
+
+    <p id="resetMsg" class="hint" role="status" style="color:var(--green);font-weight:600"></p>
+    <div class="grid g2" style="margin-bottom:12px">
+      <div>
+        <label for="ref">Referenzpreis (€), optional</label>
+        <input type="number" id="ref" min="0" step="0.01" inputmode="decimal" placeholder="z. B. 486.00">
+      </div>
+      <div>
+        <label for="sort">Sortierung</label>
+        <select id="sort">
+          <option value="effective">Niedrigster Effektivpreis</option>
+          <option value="base">Niedrigster Kaufpreis</option>
+          <option value="goodies">Höchster Wert der Zugaben</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row" style="margin-bottom:12px">
+      <label class="check"><input type="checkbox" id="optReturn"> Rücksendekosten einrechnen (Worst Case)</label>
+      <label class="check"><input type="checkbox" id="optGoodies" checked> Gratis-Zugaben abziehen</label>
+    </div>
+
+    <div class="row" style="margin-bottom:14px" role="group" aria-label="Filter">
+      <button type="button" class="ghost small" data-filter="all" aria-pressed="true">Alle</button>
+      <button type="button" class="ghost small" data-filter="new" aria-pressed="false">Nur Neuware</button>
+      <button type="button" class="ghost small" data-filter="used" aria-pressed="false">Nur gebraucht / privat</button>
+      <button type="button" class="ghost small" data-filter="goodies" aria-pressed="false">Mit Zugaben</button>
+    </div>
+
+    <div aria-live="polite">
+      <div id="verdict" class="verdict v-none"></div>
+      <div class="grid g4">
+        <div class="kpi best"><small>Bester Effektivpreis</small><strong id="kBest">–</strong></div>
+        <div class="kpi"><small>Referenzpreis</small><strong id="kRef">–</strong></div>
+        <div class="kpi"><small>Differenz</small><strong id="kDiff">–</strong></div>
+        <div class="kpi"><small>Angebote</small><strong id="kCount">0</strong></div>
+      </div>
+      <div id="list"></div>
+    </div>
+
+    <div class="row" style="margin-top:14px">
+      <button type="button" class="ghost small" id="loadExample">Beispiel laden</button>
+      <button type="button" class="danger small" id="clearAll">Alle Angebote löschen</button>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div>DealCheck 360° – Rechenhilfe ohne Gewähr. Preise und Verfügbarkeit immer beim Anbieter prüfen.<br>Werbung: Als Amazon-Partner verdiene ich an qualifizierten Verkäufen. Links zu Amazon sind Affiliate-Links. Das Dankeschön über PayPal.Me ist freiwillig.</div>
+  <div class="row">
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  var AMAZON_TAG = '241811-21';
+  var STORE_KEY = 'dealcheck360.v2';
+
+  function slug(q) { return encodeURIComponent(q.trim().toLowerCase().replace(/\s+/g, '-')); }
+  function enc(q) { return encodeURIComponent(q.trim()); }
+
+  var COMMON = [
+    { n: 'idealo', u: function (q) { return 'https://www.idealo.de/preisvergleich/MainSearchProductCategory.html?q=' + enc(q); } },
+    { n: 'Amazon.de', ad: true, u: function (q) { return 'https://www.amazon.de/s?k=' + enc(q) + '&tag=' + AMAZON_TAG; } },
+    { n: 'eBay', u: function (q) { return 'https://www.ebay.de/sch/i.html?_nkw=' + enc(q); } },
+    { n: 'Kleinanzeigen', u: function (q) { return 'https://www.kleinanzeigen.de/s-' + slug(q) + '/k0'; } }
+  ];
+  var VINTED = { n: 'Vinted', u: function (q) { return 'https://www.vinted.de/catalog?search_text=' + enc(q); } };
+  var GEIZHALS = { n: 'Geizhals', u: function (q) { return 'https://geizhals.de/?fs=' + enc(q); } };
+  var MEDIAMARKT = { n: 'MediaMarkt', u: function (q) { return 'https://www.mediamarkt.de/de/search.html?query=' + enc(q); } };
+  var SATURN = { n: 'Saturn', u: function (q) { return 'https://www.saturn.de/de/search.html?query=' + enc(q); } };
+  var MYDEALZ = { n: 'mydealz', u: function (q) { return 'https://www.mydealz.de/search?q=' + enc(q); } };
+
+  var DOMAINS = {
+    tech:     { label: 'Technik & Gaming',        ph: 'z. B. Sony PlayStation 5', extra: [GEIZHALS, MYDEALZ, MEDIAMARKT, SATURN,
+                { n: 'rebuy', u: function (q) { return 'https://www.rebuy.de/kaufen/suchen?q=' + enc(q); } }] },
+    auto:     { label: 'Auto, Reifen & Mobilität', ph: 'z. B. Vredestein Quatrac Pro 2', extra: [
+                { n: 'mobile.de', u: function (q) { return 'https://suchen.mobile.de/fahrzeuge/search.html?q=' + enc(q); } },
+                { n: 'AutoScout24', u: function (q) { return 'https://www.autoscout24.de/lst?query=' + enc(q); } }] },
+    fashion:  { label: 'Mode & Secondhand',        ph: 'z. B. Strickmütze Eisbär', extra: [VINTED,
+                { n: 'Zalando', u: function (q) { return 'https://www.zalando.de/katalog/?q=' + enc(q); } }] },
+    home:     { label: 'Möbel & Wohnen',           ph: 'z. B. Ecksofa Cord', extra: [VINTED,
+                { n: 'IKEA', u: function (q) { return 'https://www.ikea.com/de/de/search/?q=' + enc(q); } },
+                { n: 'OTTO', u: function (q) { return 'https://www.otto.de/suche/' + enc(q) + '/'; } }] },
+    household:{ label: 'Haushalt & Geschenke',     ph: 'z. B. Kaffeevollautomat', extra: [MEDIAMARKT, SATURN, GEIZHALS, MYDEALZ, VINTED] },
+    software: { label: 'Software & Lizenzen',      ph: 'z. B. Microsoft Office 2024', extra: [MEDIAMARKT, SATURN, GEIZHALS, MYDEALZ] },
+    pets:     { label: 'Tierbedarf',               ph: 'z. B. Kratzbaum XXL', extra: [
+                { n: 'Zooplus', u: function (q) { return 'https://www.zooplus.de/search/results?q=' + enc(q); } },
+                { n: 'Fressnapf', u: function (q) { return 'https://www.fressnapf.de/search/?text=' + enc(q); } }] }
+  };
+
+  var state = { domain: 'tech', query: '', filter: 'all', sort: 'effective', ref: 0, optReturn: false, optGoodies: true, offers: [] };
+
+  function $(id) { return document.getElementById(id); }
+
+  function euro(v) {
+    return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(v);
+  }
+  function num(v) { var n = parseFloat(v); return isFinite(n) && n > 0 ? Math.round(n * 100) / 100 : 0; }
+
+  function load() {
+    try {
+      var raw = localStorage.getItem(STORE_KEY);
+      if (!raw) return;
+      var d = JSON.parse(raw);
+      if (d && Array.isArray(d.offers)) {
+        state.offers = d.offers.filter(function (o) { return o && typeof o.dealer === 'string' && isFinite(o.price); });
+      }
+      if (d && DOMAINS[d.domain]) state.domain = d.domain;
+      if (d && typeof d.query === 'string') state.query = d.query;
+      if (d && isFinite(d.ref)) state.ref = d.ref;
+    } catch (e) { /* Speicher nicht verfügbar */ }
+  }
+  function save() {
+    try {
+      localStorage.setItem(STORE_KEY, JSON.stringify({ offers: state.offers, domain: state.domain, query: state.query, ref: state.ref }));
+    } catch (e) { /* ignorieren */ }
+  }
+
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text !== undefined) e.textContent = text;
+    return e;
+  }
+
+  var USED_DEFAULT = { 'Kleinanzeigen': 1, 'Vinted': 1, 'rebuy': 1 };
+
+  function portalList() { return COMMON.concat(DOMAINS[state.domain].extra); }
+
+  function updateLinks() {
+    var q = state.query.trim();
+    var links = $('portals').querySelectorAll('a.pl');
+    var list = portalList();
+    links.forEach(function (a, i) {
+      if (q) { a.href = list[i].u(q); a.classList.remove('off'); a.removeAttribute('aria-disabled'); }
+      else { a.removeAttribute('href'); a.classList.add('off'); a.setAttribute('aria-disabled', 'true'); }
+    });
+  }
+
+  function addQuick(name, row) {
+    var price = num(row.querySelector('.qp').value);
+    var msg = $('quickMsg');
+    msg.textContent = '';
+    if (price <= 0) { msg.textContent = 'Bitte bei „' + name + '“ zuerst einen Preis eintragen.'; row.querySelector('.qp').focus(); return; }
+    var id = 'q-' + state.domain + '-' + name;
+    state.offers = state.offers.filter(function (x) { return x.id !== id; });
+    state.offers.push({ id: id, dealer: name, used: row.querySelector('.qc').value === 'used', price: price, extra: num(row.querySelector('.qe').value), returnCost: 0, goodieText: '', goodieValue: 0 });
+    save(); render();
+    var b = row.querySelector('button'); var t = b.textContent; b.textContent = 'Übernommen'; setTimeout(function () { b.textContent = t; }, 1500);
+  }
+
+  var committedQuery = '';
+
+  function resetResults(reason) {
+    var had = state.offers.length > 0;
+    state.offers = [];
+    state.ref = 0;
+    $('ref').value = '';
+    save();
+    render();
+    $('resetMsg').textContent = had ? reason + ' Die bisherigen Angebote wurden zurückgesetzt.' : '';
+  }
+
+  function renderPortals() {
+    var box = $('portals');
+    box.textContent = '';
+    portalList().forEach(function (p) {
+      var row = el('div', 'qrow');
+      var a = el('a', 'pl', p.n + (p.ad ? ' (Anzeige) ↗' : ' ↗'));
+      if (p.ad) a.rel = 'sponsored noopener noreferrer';
+      a.target = '_blank'; if (!p.ad) a.rel = 'noopener noreferrer';
+      var pr = el('input', 'qp'); pr.type = 'number'; pr.min = '0'; pr.step = '0.01'; pr.placeholder = 'Preis €'; pr.setAttribute('aria-label', 'Preis bei ' + p.n + ' in Euro'); pr.inputMode = 'decimal';
+      var ex = el('input', 'qe'); ex.type = 'number'; ex.min = '0'; ex.step = '0.01'; ex.placeholder = 'Versand €'; ex.setAttribute('aria-label', 'Versandkosten bei ' + p.n + ' in Euro'); ex.inputMode = 'decimal';
+      var cs = el('select', 'qc'); cs.setAttribute('aria-label', 'Zustand bei ' + p.n);
+      var o1 = el('option', null, 'Neu'); o1.value = 'new';
+      var o2 = el('option', null, 'Gebraucht / privat'); o2.value = 'used';
+      cs.appendChild(o1); cs.appendChild(o2);
+      if (USED_DEFAULT[p.n]) cs.value = 'used';
+      var bt = el('button', null, 'Übernehmen'); bt.type = 'button';
+      bt.addEventListener('click', function () { addQuick(p.n, row); });
+      [a, pr, ex, cs, bt].forEach(function (n) { row.appendChild(n); });
+      box.appendChild(row);
+    });
+    box.appendChild(el('p', 'hint', '')).id = 'quickMsg';
+    $('quickMsg').setAttribute('role', 'alert');
+    $('quickMsg').style.color = 'var(--red)';
+    updateLinks();
+  }
+
+  function enrich(o) {
+    var g = o.goodieValue || 0;
+    var gross = o.price + (o.extra || 0) + (state.optReturn ? (o.returnCost || 0) : 0);
+    var eff = Math.max(0, gross - (state.optGoodies ? g : 0));
+    return Object.assign({}, o, { goodieValue: g, gross: gross, eff: eff });
+  }
+
+  function compute() {
+    var list = state.offers.map(enrich);
+    list = list.filter(function (o) {
+      if (state.filter === 'new') return !o.used;
+      if (state.filter === 'used') return o.used;
+      if (state.filter === 'goodies') return o.goodieValue > 0;
+      return true;
+    });
+    var best = null;
+    list.forEach(function (o) { if (!best || o.eff < best.eff) best = o; });
+    var sorted = list.slice();
+    if (state.sort === 'base') sorted.sort(function (a, b) { return a.price - b.price; });
+    else if (state.sort === 'goodies') sorted.sort(function (a, b) { return b.goodieValue - a.goodieValue || a.eff - b.eff; });
+    else sorted.sort(function (a, b) { return a.eff - b.eff; });
+    return { list: sorted, best: best };
+  }
+
+  function render() {
+    var r = compute();
+    var best = r.best;
+
+    $('kCount').textContent = String(r.list.length);
+    $('kBest').textContent = best ? euro(best.eff) : '–';
+    $('kRef').textContent = state.ref > 0 ? euro(state.ref) : '–';
+
+    var v = $('verdict');
+    var diffEl = $('kDiff');
+    if (!best) {
+      v.className = 'verdict v-none';
+      v.textContent = state.offers.length ? 'Kein Angebot passt zum gewählten Filter.' : 'Noch keine Angebote eingetragen. Trage oben mindestens ein Angebot ein.';
+      diffEl.textContent = '–';
+    } else if (state.ref > 0) {
+      var diff = state.ref - best.eff;
+      var pct = diff / state.ref * 100;
+      diffEl.textContent = (diff >= 0 ? '−' : '+') + euro(Math.abs(diff));
+      if (pct >= 8) {
+        v.className = 'verdict v-good';
+        v.textContent = 'Das beste Angebot („' + best.dealer + '“) liegt mit ' + euro(best.eff) + ' etwa ' + pct.toFixed(1).replace('.', ',') + ' % unter deinem Referenzpreis.';
+      } else if (pct >= 0) {
+        v.className = 'verdict v-mid';
+        v.textContent = 'Das beste Angebot („' + best.dealer + '“) liegt mit ' + euro(best.eff) + ' nur knapp (' + pct.toFixed(1).replace('.', ',') + ' %) unter deinem Referenzpreis.';
+      } else {
+        v.className = 'verdict v-bad';
+        v.textContent = 'Das beste Angebot („' + best.dealer + '“) liegt mit ' + euro(best.eff) + ' über deinem Referenzpreis (' + Math.abs(pct).toFixed(1).replace('.', ',') + ' % teurer).';
+      }
+    } else {
+      v.className = 'verdict v-none';
+      v.textContent = 'Bestes Angebot: „' + best.dealer + '“ mit ' + euro(best.eff) + ' Effektivpreis. Für eine Bewertung gib oben einen Referenzpreis ein.';
+      diffEl.textContent = '–';
+    }
+
+    var box = $('list');
+    box.textContent = '';
+    if (!r.list.length) { box.appendChild(el('div', 'empty', 'Keine Angebote anzuzeigen.')); return; }
+
+    r.list.forEach(function (o, i) {
+      var isWin = best && o.id === best.id;
+      var card = el('div', 'offer' + (isWin ? ' win' : ''));
+
+      var left = el('div');
+      var h = el('h3');
+      h.appendChild(document.createTextNode('#' + (i + 1) + ' ' + o.dealer));
+      h.appendChild(el('span', 'tag ' + (o.used ? 't-used' : 't-new'), o.used ? 'Gebraucht / privat' : 'Neuware'));
+      if (o.example) h.appendChild(el('span', 'tag t-ex', 'Beispiel, keine echten Preise'));
+      if (isWin) h.appendChild(el('span', 'tag t-win', 'Niedrigster Effektivpreis'));
+      left.appendChild(h);
+
+      var parts = ['Kaufpreis ' + euro(o.price), 'Versand/Gebühren ' + euro(o.extra || 0)];
+      if (state.optReturn) parts.push('Rücksendung ' + euro(o.returnCost || 0));
+      left.appendChild(el('p', 'meta', parts.join(' · ')));
+      if (o.goodieValue > 0) {
+        left.appendChild(el('p', 'meta', 'Zugabe: ' + (o.goodieText || 'Gratis-Zugabe') + ' (Wert ' + euro(o.goodieValue) + (state.optGoodies ? ', abgezogen' : ', nicht abgezogen') + ')'));
+      }
+      if (o.used) left.appendChild(el('p', 'meta', 'Hinweis: Bei Gebrauchtware Zustand, Garantie und Käuferschutz selbst prüfen.'));
+
+      var right = el('div', 'row');
+      var eff = el('div', 'eff');
+      eff.appendChild(el('small', null, 'Effektivpreis'));
+      eff.appendChild(el('strong', null, euro(o.eff)));
+      right.appendChild(eff);
+      var del = el('button', 'danger small', 'Löschen');
+      del.type = 'button';
+      del.setAttribute('aria-label', 'Angebot ' + o.dealer + ' löschen');
+      del.addEventListener('click', function () {
+        state.offers = state.offers.filter(function (x) { return x.id !== o.id; });
+        save(); render();
+      });
+      right.appendChild(del);
+
+      card.appendChild(left);
+      card.appendChild(right);
+      box.appendChild(card);
+    });
+  }
+
+  function init() {
+    load();
+
+    var sel = $('domain');
+    Object.keys(DOMAINS).forEach(function (k) {
+      var o = el('option', null, DOMAINS[k].label);
+      o.value = k;
+      sel.appendChild(o);
+    });
+    sel.value = state.domain;
+    $('query').value = state.query;
+    $('query').placeholder = DOMAINS[state.domain].ph;
+    if (state.ref > 0) $('ref').value = state.ref;
+
+    sel.addEventListener('change', function () {
+      state.domain = sel.value;
+      $('query').placeholder = DOMAINS[state.domain].ph;
+      renderPortals();
+      resetResults('Neue Themenwelt gewählt.');
+    });
+    $('query').addEventListener('input', function (e) {
+      state.query = e.target.value;
+      save(); updateLinks();
+    });
+    committedQuery = state.query.trim().toLowerCase();
+    $('query').addEventListener('change', function () {
+      var now = state.query.trim().toLowerCase();
+      if (now !== committedQuery) {
+        committedQuery = now;
+        resetResults('Neuer Suchbegriff.');
+      }
+    });
+    $('ref').addEventListener('input', function (e) {
+      state.ref = num(e.target.value);
+      save(); render();
+    });
+    $('sort').addEventListener('change', function (e) { state.sort = e.target.value; render(); });
+    $('optReturn').addEventListener('change', function (e) { state.optReturn = e.target.checked; render(); });
+    $('optGoodies').addEventListener('change', function (e) { state.optGoodies = e.target.checked; render(); });
+
+    document.querySelectorAll('[data-filter]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        state.filter = b.dataset.filter;
+        document.querySelectorAll('[data-filter]').forEach(function (x) {
+          x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+        });
+        render();
+      });
+    });
+
+    $('addForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var msg = $('formMsg');
+      msg.textContent = '';
+      var dealer = $('fDealer').value.trim();
+      var price = num($('fPrice').value);
+      if (!dealer) { msg.textContent = 'Bitte Shop oder Verkäufer angeben.'; $('fDealer').focus(); return; }
+      if (price <= 0) { msg.textContent = 'Bitte einen Kaufpreis größer 0 eingeben.'; $('fPrice').focus(); return; }
+      var gVal = num($('fGVal').value);
+      state.offers.push({
+        id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
+        dealer: dealer,
+        used: $('fCond').value === 'used',
+        price: price,
+        extra: num($('fExtra').value),
+        returnCost: num($('fReturn').value),
+        goodieText: $('fGText').value.trim(),
+        goodieValue: gVal
+      });
+      save();
+      $('addForm').reset();
+      render();
+      $('list').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+
+    $('loadExample').addEventListener('click', function () {
+      state.offers = state.offers.filter(function (x) { return !x.example; });
+      [
+        { dealer: 'Beispiel: Händler A', used: false, price: 499, extra: 0, goodieText: 'Zubehör', goodieValue: 40 },
+        { dealer: 'Beispiel: Händler B', used: false, price: 429, extra: 4.95, goodieText: '', goodieValue: 0 },
+        { dealer: 'Beispiel: Privatverkäufer C', used: true, price: 365, extra: 6.99, goodieText: '', goodieValue: 0 },
+        { dealer: 'Beispiel: Marktplatz D', used: true, price: 379, extra: 6.99, goodieText: '', goodieValue: 0 }
+      ].forEach(function (o, i) {
+        o.id = 'ex-' + i; o.returnCost = 0; o.example = true; state.offers.push(o);
+      });
+      save(); render();
+    });
+
+    $('clearAll').addEventListener('click', function () {
+      if (!state.offers.length) return;
+      if (window.confirm('Wirklich alle eingetragenen Angebote löschen?')) {
+        state.offers = [];
+        save(); render();
+      }
+    });
+
+    renderPortals();
+    render();
+  }
+
+  init();
+})();
+</script>
+</body>
+</html>
