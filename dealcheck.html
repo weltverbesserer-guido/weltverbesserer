@@ -75,10 +75,10 @@ footer a{color:var(--muted)}
 </head>
 <body>
 <div class="wrap">
-<header class="top"><a class="home" href="index.html">Weltverbesserer</a><nav><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav></header>
+<header class="top"><a class="home" href="index.html">Weltverbesserer</a><nav><a href="anleitung.html">Anleitung</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav></header>
 <h1>DealCheck 360° – was kostet es wirklich?</h1>
 <p class="lead">Rechnet Kaufpreis, Versand und Rücksendung zusammen und zieht Gratis-Zugaben ab. So lassen sich Angebote fair vergleichen, neu wie gebraucht.</p>
-<p class="row" style="margin:0 0 1.75rem"><a class="btn ghost" target="_blank" rel="noopener noreferrer" href="https://www.paypal.me/BiboTheNerd">Dankeschön per PayPal (freiwillig)</a></p>
+<p class="row" style="margin:0 0 1.75rem"><a class="btn" href="anleitung.html">So geht's: Kurzanleitung</a><a class="btn ghost" target="_blank" rel="noopener noreferrer" href="https://www.paypal.me/BiboTheNerd">Dankeschön per PayPal (freiwillig)</a></p>
 <main>
 
   <p class="notice" role="note"><strong>Hinweis:</strong> Dieses Tool zeigt keine Live-Preise. Du suchst über die Portal-Links selbst und trägst die gefundenen Angebote unten ein. Der Rechner zeigt dir dann den echten Gesamtpreis. Deine Eingaben bleiben nur in deinem Browser gespeichert.</p>
@@ -123,6 +123,7 @@ footer a{color:var(--muted)}
         <div><label for="fExtra">Versand / Gebühren (€)</label><input type="number" id="fExtra" min="0" step="0.01" inputmode="decimal" value="0"></div>
         <div><label for="fReturn">Rücksendekosten (€)</label><input type="number" id="fReturn" min="0" step="0.01" inputmode="decimal" value="0"></div>
       </div>
+      <p class="hint" style="margin:.25rem 0 0"><strong>Gratis-Zugabe?</strong> Das ist etwas, das du kostenlos zum Angebot bekommst, zum Beispiel ein zweiter Controller, ein Spiel oder ein Gutschein. Trage ein, was es im Laden kosten würde. Der Wert wird vom Preis abgezogen. Das lohnt sich nur, wenn du die Zugabe auch wirklich brauchst. <a href="anleitung.html#zugaben">Mehr dazu</a></p>
       <div class="grid g2">
         <div><label for="fGText">Gratis-Zugabe (optional)</label><input type="text" id="fGText" maxlength="80" placeholder="z. B. 2. Controller"></div>
         <div><label for="fGVal">Wert der Zugabe (€)</label><input type="number" id="fGVal" min="0" step="0.01" inputmode="decimal" value="0"></div>
@@ -134,13 +135,13 @@ footer a{color:var(--muted)}
 
   <section class="card" aria-labelledby="h-res">
     <h2 id="h-res">3. Vergleich</h2>
-    <p class="hint">Optional: Gib einen Referenzpreis ein (z. B. durchschnittlicher Preis laut Preisvergleich), dann bewertet das Tool das beste Angebot dagegen.</p>
+    <p class="hint">Optional: Trage die unverbindliche Preisempfehlung (UVP) des Herstellers ein. Du findest sie auf der Herstellerseite. Dann vergleicht das Tool das beste Angebot damit. Die UVP liegt oft über den echten Marktpreisen und ist nur ein grober Anhaltspunkt.</p>
 
     <p id="resetMsg" class="hint" role="status" style="color:var(--accent);font-weight:600"></p>
     <div class="grid g2" style="margin-bottom:12px">
       <div>
-        <label for="ref">Referenzpreis (€), optional</label>
-        <input type="number" id="ref" min="0" step="0.01" inputmode="decimal" placeholder="z. B. 486.00">
+        <label for="ref">UVP des Herstellers (€), optional</label>
+        <input type="number" id="ref" min="0" step="0.01" inputmode="decimal" placeholder="z. B. 549.99">
       </div>
       <div>
         <label for="sort">Sortierung</label>
@@ -154,7 +155,7 @@ footer a{color:var(--muted)}
 
     <div class="row" style="margin-bottom:12px">
       <label class="check"><input type="checkbox" id="optReturn"> Rücksendekosten einrechnen (Worst Case)</label>
-      <label class="check"><input type="checkbox" id="optGoodies" checked> Gratis-Zugaben abziehen</label>
+      <label class="check" title="Zieht den Wert von Gratis-Zugaben (z. B. ein zweiter Controller) vom Preis ab"><input type="checkbox" id="optGoodies" checked> Gratis-Zugaben abziehen</label>
     </div>
 
     <div class="row" style="margin-bottom:14px" role="group" aria-label="Filter">
@@ -168,7 +169,7 @@ footer a{color:var(--muted)}
       <div id="verdict" class="verdict v-none"></div>
       <div class="grid g4">
         <div class="kpi best"><small>Bester Effektivpreis</small><strong id="kBest">–</strong></div>
-        <div class="kpi"><small>Referenzpreis</small><strong id="kRef">–</strong></div>
+        <div class="kpi"><small>UVP</small><strong id="kRef">–</strong></div>
         <div class="kpi"><small>Differenz</small><strong id="kDiff">–</strong></div>
         <div class="kpi"><small>Angebote</small><strong id="kCount">0</strong></div>
       </div>
@@ -370,17 +371,17 @@ footer a{color:var(--muted)}
       diffEl.textContent = (diff >= 0 ? '−' : '+') + euro(Math.abs(diff));
       if (pct >= 8) {
         v.className = 'verdict v-good';
-        v.textContent = 'Das beste Angebot („' + best.dealer + '“) liegt mit ' + euro(best.eff) + ' etwa ' + pct.toFixed(1).replace('.', ',') + ' % unter deinem Referenzpreis.';
+        v.textContent = 'Das beste Angebot („' + best.dealer + '“) liegt mit ' + euro(best.eff) + ' etwa ' + pct.toFixed(1).replace('.', ',') + ' % unter der UVP des Herstellers.';
       } else if (pct >= 0) {
         v.className = 'verdict v-mid';
-        v.textContent = 'Das beste Angebot („' + best.dealer + '“) liegt mit ' + euro(best.eff) + ' nur knapp (' + pct.toFixed(1).replace('.', ',') + ' %) unter deinem Referenzpreis.';
+        v.textContent = 'Das beste Angebot („' + best.dealer + '“) liegt mit ' + euro(best.eff) + ' nur knapp (' + pct.toFixed(1).replace('.', ',') + ' %) unter der UVP des Herstellers.';
       } else {
         v.className = 'verdict v-bad';
-        v.textContent = 'Das beste Angebot („' + best.dealer + '“) liegt mit ' + euro(best.eff) + ' über deinem Referenzpreis (' + Math.abs(pct).toFixed(1).replace('.', ',') + ' % teurer).';
+        v.textContent = 'Das beste Angebot („' + best.dealer + '“) liegt mit ' + euro(best.eff) + ' über der UVP des Herstellers (' + Math.abs(pct).toFixed(1).replace('.', ',') + ' % teurer).';
       }
     } else {
       v.className = 'verdict v-none';
-      v.textContent = 'Bestes Angebot: „' + best.dealer + '“ mit ' + euro(best.eff) + ' Effektivpreis. Für eine Bewertung gib oben einen Referenzpreis ein.';
+      v.textContent = 'Bestes Angebot: „' + best.dealer + '“ mit ' + euro(best.eff) + ' Effektivpreis. Für eine Bewertung trage oben die UVP des Herstellers ein.';
       diffEl.textContent = '–';
     }
 
