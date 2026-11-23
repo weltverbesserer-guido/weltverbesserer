@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bücher und YouTube-Kanäle – Weltverbesserer</title>
+<meta name="description" content="Bücher bei Amazon (Psychothriller, Ratgeber, Kinderbuch) und YouTube-Kanäle Gedankenpause und Quiz-Kanal.">
+<style>
+:root{--bg:#F7F8FA;--surface:#FFFFFF;--ink:#1C2333;--muted:#5A6478;--line:#DDE2EA;--accent:#0F7B6C;--accent-ink:#FFFFFF;--accent-soft:#E6F4F1;--warn-bg:#FFF7E6;--warn-line:#F1D9A0;--warn-ink:#7A4B00;--bad:#B3261E;--bad-bg:#FDECEA;--info-bg:#EAF1FB;--info-ink:#1F4E8C;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#12161F;--surface:#1A202C;--ink:#E8ECF2;--muted:#A3ADBF;--line:#2C3444;--accent:#3CC3AE;--accent-ink:#0B1F1C;--accent-soft:#16302C;--warn-bg:#2B2413;--warn-line:#5A4A1E;--warn-ink:#F0CF86;--bad:#FF9C94;--bad-bg:#33191A;--info-bg:#17263A;--info-ink:#9CC4F5;color-scheme:dark}}
+*{box-sizing:border-box}
+html{font-size:17px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;line-height:1.6}
+.wrap{max-width:50rem;margin:0 auto;padding:2.5rem 1.25rem 3rem}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.top{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;border-bottom:1px solid var(--line);padding-bottom:.75rem;margin-bottom:2.5rem}
+.top a.home{font-weight:800;color:var(--ink);text-decoration:none;font-size:1.05rem}
+.top nav a{margin-left:1rem;font-size:.9rem;color:var(--muted)}
+h1{font-size:2.3rem;line-height:1.1;margin:0 0 1rem;letter-spacing:-.02em}
+h2{font-size:1.25rem;margin:0 0 .35rem}
+p.lead{font-size:1.1rem;color:var(--muted);margin:0 0 1.25rem;max-width:36rem}
+.hint{font-size:.9rem;color:var(--muted);margin:0 0 .9rem}
+main{display:grid;gap:1.1rem}
+.card{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--accent);border-radius:10px;padding:1.25rem 1.4rem}
+.notice{background:var(--warn-bg);border:1px solid var(--warn-line);color:var(--warn-ink);border-radius:10px;padding:.8rem 1rem;font-size:.9rem;margin:0}
+label{display:block;font-size:.85rem;font-weight:600;margin-bottom:.25rem}
+input[type=text],input[type=number],select{width:100%;padding:.55rem .7rem;border:1px solid var(--line);border-radius:8px;font:inherit;font-size:.95rem;background:var(--bg);color:var(--ink)}
+.grid{display:grid;gap:.75rem}
+.g2{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(130px,1fr))}
+.row{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+button,.btn{font:inherit;font-weight:700;font-size:.9rem;border:0;border-radius:8px;padding:.55rem 1.1rem;cursor:pointer;background:var(--accent);color:var(--accent-ink);text-decoration:none;display:inline-block}
+button:hover,.btn:hover{filter:brightness(.93)}
+button.ghost,.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+button.ghost:hover,.btn.ghost:hover{background:var(--accent-soft);filter:none}
+button.ghost[aria-pressed=true]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+button.small{padding:.35rem .7rem;font-size:.8rem}
+button.danger{background:transparent;color:var(--bad);border:1px solid var(--line)}
+button.danger:hover{background:var(--bad-bg);filter:none}
+.check{display:flex;align-items:center;gap:.5rem;font-size:.9rem;font-weight:600;margin:0}
+.check input{width:18px;height:18px;accent-color:var(--accent)}
+.kpi{border:1px solid var(--line);border-radius:10px;padding:.7rem .8rem;background:var(--bg)}
+.kpi small{display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);font-weight:700}
+.kpi strong{font-size:1.35rem;display:block}
+.kpi.best{background:var(--accent-soft);border-color:var(--accent)}
+.kpi.best strong{color:var(--accent)}
+.verdict{border-radius:10px;padding:.75rem 1rem;font-size:.95rem;margin-bottom:.9rem;border:1px solid var(--line)}
+.v-good{background:var(--accent-soft);border-color:var(--accent)}
+.v-mid{background:var(--info-bg);color:var(--info-ink);border-color:transparent}
+.v-bad{background:var(--bad-bg);color:var(--bad);border-color:transparent}
+.v-none{background:var(--bg);color:var(--muted)}
+.offer{border:1px solid var(--line);border-radius:10px;padding:.9rem 1rem;display:flex;flex-wrap:wrap;gap:.75rem;justify-content:space-between;align-items:center;margin-top:.65rem;background:var(--surface)}
+.offer.win{border-color:var(--accent);background:var(--accent-soft)}
+.offer h3{margin:0;font-size:1rem}
+.tag{display:inline-block;font-size:.7rem;font-weight:700;padding:.1rem .55rem;border-radius:99px;margin-left:.4rem;vertical-align:middle;border:1px solid var(--line);color:var(--muted)}
+.t-win{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.t-ex{background:var(--warn-bg);border-color:var(--warn-line);color:var(--warn-ink)}
+.meta{font-size:.85rem;color:var(--muted);margin:.15rem 0 0}
+.eff{text-align:right}
+.eff small{display:block;font-size:.7rem;text-transform:uppercase;color:var(--muted);font-weight:700}
+.eff strong{font-size:1.4rem}
+.win .eff strong{color:var(--accent)}
+.empty{color:var(--muted);font-size:.9rem;padding:.75rem 0}
+.qrow{display:grid;grid-template-columns:minmax(110px,1.2fr) 1fr 1fr 1.3fr auto;gap:.5rem;align-items:center;margin-top:.5rem}
+.qrow a.pl{font-weight:700;font-size:.9rem;padding:.5rem .6rem;border-radius:8px;border:1px solid var(--line);color:var(--ink);text-decoration:none;text-align:center;background:var(--surface)}
+.qrow a.pl:hover{background:var(--accent-soft)}
+.qrow a.pl.off{opacity:.5;pointer-events:none}
+details{font-size:.9rem;margin:.6rem 0}
+summary{cursor:pointer;font-weight:600;color:var(--accent)}
+footer{border-top:1px solid var(--line);margin-top:2.5rem;padding-top:1rem;font-size:.85rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between}
+footer a{color:var(--muted)}
+@media (max-width:640px){.qrow{grid-template-columns:1fr 1fr}.qrow a.pl,.qrow button{grid-column:1/-1}.eff{text-align:left}h1{font-size:1.8rem}}
+h2.sec{font-size:1.25rem;margin:2rem 0 .6rem}
+ol.steps{padding-left:1.2rem;margin:0 0 1rem}
+ol.steps li{margin-bottom:.6rem}
+dl.fields dt{font-weight:700;margin-top:.8rem}
+dl.fields dd{margin:.1rem 0 0;color:var(--muted)}
+.example{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--accent);border-radius:10px;padding:1rem 1.2rem;margin:.75rem 0}
+.example table{border-collapse:collapse;width:100%;font-size:.95rem}
+.example th,.example td{text-align:left;padding:.35rem .4rem;border-bottom:1px solid var(--line)}
+.example td.n,.example th.n{text-align:right}
+.example tr.best td{font-weight:700;color:var(--accent)}
+details.faq{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:.6rem 1rem;margin:.5rem 0}
+details.faq summary{cursor:pointer;font-weight:700;color:var(--ink)}
+details.faq p{margin:.5rem 0 .2rem;color:var(--muted)}
+
+.book{display:grid;grid-template-columns:150px 1fr;gap:1.2rem;align-items:start}
+.book img{width:150px;height:auto;border-radius:6px;border:1px solid var(--line);display:block}
+.book h3{margin:0 0 .15rem;font-size:1.2rem}
+.book .sub{font-size:.9rem;color:var(--muted);margin:0 0 .6rem}
+.book p{margin:0 0 .7rem}
+.stack{display:grid;gap:1.1rem}
+@media (max-width:520px){.book{grid-template-columns:1fr}.book img{width:140px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><a class="home" href="index.html">Weltverbesserer</a><nav><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav></header>
+<h1>Bücher und Kanäle</h1>
+<p class="lead">Neben den kostenlosen Werkzeugen gibt es hier meine Bücher bei Amazon und meine YouTube-Kanäle.</p>
+<p class="notice"><strong>Werbehinweis:</strong> Die Links zu Amazon sind Affiliate-Links (Anzeige). Als Amazon-Partner verdiene ich an qualifizierten Verkäufen. Für Sie entstehen keine Mehrkosten.</p>
+
+<h2 class="sec">Bücher</h2>
+<div class="stack">
+<article class="card book">
+<img src="buecher/zahnfee.jpg" width="150" alt="Cover: Die stille Zahnfee" loading="lazy">
+<div>
+<h3>Die stille Zahnfee</h3>
+<p class="sub">Psychothriller von Guido Veithen · Band 1</p>
+<p>Thomas Brenner ist der Mann, dem man den Haustürschlüssel anvertraut: Bauleiter, Kassenwart, liebevoller Vater, bester Freund eines Kommissars. Und er hat ein Geheimnis. Ein Serienmörder, von innen erzählt: leise, kontrolliert, erschreckend normal. Für alle, die Psychothriller lieben, die nicht schreien, sondern unter die Haut kriechen.</p>
+
+<p class="row"><a class="btn" rel="sponsored noopener noreferrer" target="_blank" href="https://www.amazon.de/dp/B0HN5C329H?tag=241811-21">Taschenbuch bei Amazon (Anzeige)</a><a class="btn ghost" rel="sponsored noopener noreferrer" target="_blank" href="https://www.amazon.de/dp/B0HN4N83M7?tag=241811-21">E-Book (Anzeige)</a></p>
+</div>
+</article>
+<article class="card book">
+<img src="buecher/positives-denken.jpg" width="150" alt="Cover: Positives Denken, aber richtig" loading="lazy">
+<div>
+<h3>Positives Denken – aber richtig</h3>
+<p class="sub">Selbsthilfe-Ratgeber von Guido Veithen</p>
+<p>Was die Forschung wirklich über positives Denken weiß: Zwölf Kapitel mit Übungen zu Dankbarkeit, Selbstmitgefühl, der WOOP-Methode und Achtsamkeit, dazu ein Workbook zum Ausfüllen. Kein Ersatz für Therapie, sondern ein ehrlicher, alltagstauglicher Begleiter.</p>
+
+<p class="row"><a class="btn" rel="sponsored noopener noreferrer" target="_blank" href="https://www.amazon.de/dp/B0HKWQZ8WB?tag=241811-21">Taschenbuch bei Amazon (Anzeige)</a><a class="btn ghost" rel="sponsored noopener noreferrer" target="_blank" href="https://www.amazon.de/dp/B0HKW5SDD2?tag=241811-21">E-Book (Anzeige)</a></p>
+</div>
+</article>
+<article class="card book">
+<img src="buecher/kasimir.jpg" width="150" alt="Cover: Kasimir der Regentropfen" loading="lazy">
+<div>
+<h3>Kasimir der Regentropfen</h3>
+<p class="sub">Keine Angst vorm Gewitter · Bilderbuch für Kinder von 5 bis 10 Jahren</p>
+<p>Kasimir ist ein kleiner Regentropfen, der eines Nachts an Linas Fenster landet, mitten im Gewitter. Er erzählt ihr seine Reise vom Meer in die Wolken und zurück zur Erde. Kinder lernen nebenbei, wie ein Gewitter entsteht, warum der Donner nach dem Blitz kommt und welche einfachen Regeln sie schützen. Mit Mitmach-Teil: Experimente, Zähl-Trick, Gewitter-Regeln und Quiz.</p>
+<p class="hint">Text und Illustrationen wurden mit Unterstützung von KI erstellt.</p>
+<p class="row"><a class="btn" rel="sponsored noopener noreferrer" target="_blank" href="https://www.amazon.de/dp/B0HLPXTSRV?tag=241811-21">Taschenbuch bei Amazon (Anzeige)</a><a class="btn ghost" rel="sponsored noopener noreferrer" target="_blank" href="https://www.amazon.de/dp/B0HLPNGJMS?tag=241811-21">E-Book (Anzeige)</a></p>
+</div>
+</article>
+</div>
+
+<h2 class="sec">YouTube-Kanäle</h2>
+<p class="hint">Mit dem Klick auf „Auf YouTube ansehen“ verlassen Sie diese Seite. Es gelten die Datenschutzbestimmungen von YouTube.</p>
+<div class="stack">
+<article class="card">
+<h3 style="margin:0 0 .3rem;font-size:1.2rem">Gedankenpause</h3>
+<p style="margin:0 0 .8rem;color:var(--muted)">Täglich ein kurzer Gedanke mit Mini-Aufgabe für mehr Motivation, Zufriedenheit und eine gute innere Haltung. Ruhig, in unter einer Minute.</p>
+<p class="row" style="margin:0"><a class="btn" target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/@Gedankenpause-s8f">Auf YouTube ansehen</a></p>
+</article>
+<article class="card">
+<h3 style="margin:0 0 .3rem;font-size:1.2rem">Quiz-Kanal</h3>
+<p style="margin:0 0 .8rem;color:var(--muted)">Täglich ein Quiz als Short mit vier Fragen. Testen Sie Ihr Wissen und raten Sie mit.</p>
+<p class="row" style="margin:0"><a class="btn" target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/@Quiz-Kanal">Auf YouTube ansehen</a></p>
+</article>
+</div>
+
+<footer><span>© 2026 Guido Veithen · Freie Software (GPLv3)</span><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="https://www.paypal.me/BiboTheNerd" target="_blank" rel="noopener noreferrer">Dankeschön per PayPal</a></footer>
+</div>
+</body>
+</html>
