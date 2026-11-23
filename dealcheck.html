@@ -62,7 +62,7 @@ button.danger:hover{background:var(--bad-bg);filter:none}
 .eff strong{font-size:1.4rem}
 .win .eff strong{color:var(--accent)}
 .empty{color:var(--muted);font-size:.9rem;padding:.75rem 0}
-.qrow{display:grid;grid-template-columns:minmax(110px,1.2fr) 1fr 1fr 1.3fr auto;gap:.5rem;align-items:center;margin-top:.5rem}
+.qrow{display:grid;grid-template-columns:minmax(100px,1.1fr) 1fr 1fr .9fr 1.2fr auto;gap:.5rem;align-items:center;margin-top:.5rem}
 .qrow a.pl{font-weight:700;font-size:.9rem;padding:.5rem .6rem;border-radius:8px;border:1px solid var(--line);color:var(--ink);text-decoration:none;text-align:center;background:var(--surface)}
 .qrow a.pl:hover{background:var(--accent-soft)}
 .qrow a.pl.off{opacity:.5;pointer-events:none}
@@ -122,6 +122,7 @@ footer a{color:var(--muted)}
         <div><label for="fPrice">Kaufpreis (€) *</label><input type="number" id="fPrice" min="0" step="0.01" inputmode="decimal" required></div>
         <div><label for="fExtra">Versand / Gebühren (€)</label><input type="number" id="fExtra" min="0" step="0.01" inputmode="decimal" value="0"></div>
         <div><label for="fReturn">Rücksendekosten (€)</label><input type="number" id="fReturn" min="0" step="0.01" inputmode="decimal" value="0"></div>
+        <div><label for="fDays">Lieferzeit (Tage)</label><input type="number" id="fDays" min="0" max="365" step="1" inputmode="numeric" placeholder="z. B. 3"></div>
       </div>
       <p class="hint" style="margin:.25rem 0 0"><strong>Gratis-Zugabe?</strong> Das ist etwas, das du kostenlos zum Angebot bekommst, zum Beispiel ein zweiter Controller, ein Spiel oder ein Gutschein. Trage ein, was es im Laden kosten würde. Der Wert wird vom Preis abgezogen. Das lohnt sich nur, wenn du die Zugabe auch wirklich brauchst. <a href="anleitung.html#zugaben">Mehr dazu</a></p>
       <div class="grid g2">
@@ -149,6 +150,7 @@ footer a{color:var(--muted)}
           <option value="effective">Niedrigster Effektivpreis</option>
           <option value="base">Niedrigster Kaufpreis</option>
           <option value="goodies">Höchster Wert der Zugaben</option>
+          <option value="days">Kürzeste Lieferzeit</option>
         </select>
       </div>
     </div>
@@ -235,6 +237,7 @@ footer a{color:var(--muted)}
   function euro(v) {
     return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(v);
   }
+  function dayNum(v) { var n = parseInt(v, 10); return isFinite(n) && n >= 0 && n <= 365 ? n : null; }
   function num(v) { var n = parseFloat(v); return isFinite(n) && n > 0 ? Math.round(n * 100) / 100 : 0; }
 
   function load() {
@@ -284,7 +287,7 @@ footer a{color:var(--muted)}
     if (price <= 0) { msg.textContent = 'Bitte bei „' + name + '“ zuerst einen Preis eintragen.'; row.querySelector('.qp').focus(); return; }
     var id = 'q-' + state.domain + '-' + name;
     state.offers = state.offers.filter(function (x) { return x.id !== id; });
-    state.offers.push({ id: id, dealer: name, used: row.querySelector('.qc').value === 'used', price: price, extra: num(row.querySelector('.qe').value), returnCost: 0, goodieText: '', goodieValue: 0 });
+    state.offers.push({ id: id, dealer: name, used: row.querySelector('.qc').value === 'used', price: price, extra: num(row.querySelector('.qe').value), days: dayNum(row.querySelector('.qd').value), returnCost: 0, goodieText: '', goodieValue: 0 });
     save(); render();
     var b = row.querySelector('button'); var t = b.textContent; b.textContent = 'Übernommen'; setTimeout(function () { b.textContent = t; }, 1500);
   }
@@ -311,6 +314,7 @@ footer a{color:var(--muted)}
       a.target = '_blank'; if (!p.ad) a.rel = 'noopener noreferrer';
       var pr = el('input', 'qp'); pr.type = 'number'; pr.min = '0'; pr.step = '0.01'; pr.placeholder = 'Preis €'; pr.setAttribute('aria-label', 'Preis bei ' + p.n + ' in Euro'); pr.inputMode = 'decimal';
       var ex = el('input', 'qe'); ex.type = 'number'; ex.min = '0'; ex.step = '0.01'; ex.placeholder = 'Versand €'; ex.setAttribute('aria-label', 'Versandkosten bei ' + p.n + ' in Euro'); ex.inputMode = 'decimal';
+      var qd = el('input', 'qd'); qd.type = 'number'; qd.min = '0'; qd.max = '365'; qd.step = '1'; qd.placeholder = 'Tage'; qd.setAttribute('aria-label', 'Lieferzeit bei ' + p.n + ' in Tagen'); qd.inputMode = 'numeric';
       var cs = el('select', 'qc'); cs.setAttribute('aria-label', 'Zustand bei ' + p.n);
       var o1 = el('option', null, 'Neu'); o1.value = 'new';
       var o2 = el('option', null, 'Gebraucht / privat'); o2.value = 'used';
@@ -318,7 +322,7 @@ footer a{color:var(--muted)}
       if (USED_DEFAULT[p.n]) cs.value = 'used';
       var bt = el('button', null, 'Übernehmen'); bt.type = 'button';
       bt.addEventListener('click', function () { addQuick(p.n, row); });
-      [a, pr, ex, cs, bt].forEach(function (n) { row.appendChild(n); });
+      [a, pr, ex, qd, cs, bt].forEach(function (n) { row.appendChild(n); });
       box.appendChild(row);
     });
     box.appendChild(el('p', 'hint', '')).id = 'quickMsg';
@@ -346,6 +350,7 @@ footer a{color:var(--muted)}
     list.forEach(function (o) { if (!best || o.eff < best.eff) best = o; });
     var sorted = list.slice();
     if (state.sort === 'base') sorted.sort(function (a, b) { return a.price - b.price; });
+    else if (state.sort === 'days') sorted.sort(function (a, b) { var x = a.days == null ? 9999 : a.days, y = b.days == null ? 9999 : b.days; return x - y || a.eff - b.eff; });
     else if (state.sort === 'goodies') sorted.sort(function (a, b) { return b.goodieValue - a.goodieValue || a.eff - b.eff; });
     else sorted.sort(function (a, b) { return a.eff - b.eff; });
     return { list: sorted, best: best };
@@ -403,6 +408,7 @@ footer a{color:var(--muted)}
 
       var parts = ['Kaufpreis ' + euro(o.price), 'Versand/Gebühren ' + euro(o.extra || 0)];
       if (state.optReturn) parts.push('Rücksendung ' + euro(o.returnCost || 0));
+      if (o.days != null) parts.push('Lieferzeit ' + (o.days === 0 ? 'sofort / Abholung' : o.days + (o.days === 1 ? ' Tag' : ' Tage')));
       left.appendChild(el('p', 'meta', parts.join(' · ')));
       if (o.goodieValue > 0) {
         left.appendChild(el('p', 'meta', 'Zugabe: ' + (o.goodieText || 'Gratis-Zugabe') + ' (Wert ' + euro(o.goodieValue) + (state.optGoodies ? ', abgezogen' : ', nicht abgezogen') + ')'));
@@ -495,6 +501,7 @@ footer a{color:var(--muted)}
         price: price,
         extra: num($('fExtra').value),
         returnCost: num($('fReturn').value),
+        days: dayNum($('fDays').value),
         goodieText: $('fGText').value.trim(),
         goodieValue: gVal
       });
@@ -507,10 +514,10 @@ footer a{color:var(--muted)}
     $('loadExample').addEventListener('click', function () {
       state.offers = state.offers.filter(function (x) { return !x.example; });
       [
-        { dealer: 'Beispiel: Händler A', used: false, price: 499, extra: 0, goodieText: 'Zubehör', goodieValue: 40 },
-        { dealer: 'Beispiel: Händler B', used: false, price: 429, extra: 4.95, goodieText: '', goodieValue: 0 },
-        { dealer: 'Beispiel: Privatverkäufer C', used: true, price: 365, extra: 6.99, goodieText: '', goodieValue: 0 },
-        { dealer: 'Beispiel: Marktplatz D', used: true, price: 379, extra: 6.99, goodieText: '', goodieValue: 0 }
+        { dealer: 'Beispiel: Händler A', used: false, price: 499, extra: 0, days: 2, goodieText: 'Zubehör', goodieValue: 40 },
+        { dealer: 'Beispiel: Händler B', used: false, price: 429, extra: 4.95, days: 5, goodieText: '', goodieValue: 0 },
+        { dealer: 'Beispiel: Privatverkäufer C', used: true, price: 365, extra: 6.99, days: 3, goodieText: '', goodieValue: 0 },
+        { dealer: 'Beispiel: Marktplatz D', used: true, price: 379, extra: 6.99, days: 4, goodieText: '', goodieValue: 0 }
       ].forEach(function (o, i) {
         o.id = 'ex-' + i; o.returnCost = 0; o.example = true; state.offers.push(o);
       });
